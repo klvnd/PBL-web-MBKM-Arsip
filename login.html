@@ -15,45 +15,46 @@
                     <div class="col-7 row ">
                         <div class="d-grid gap-5">
                             <img src="/images/MBKM Arsip.png" class="mx-auto d-block" alt="...">
-                            <!-- <h1 class="d-flex align-items-center justify-content-center">MBKM Arsip</h1> -->
                             <h2 class="d-flex align-items-center justify-content-center">Log In</h2>
                         </div>
                         
-                        <form>
+                        <form onsubmit="return validateForm()">
                             <div class="mb-3">
                                 <label class="form-label"><p class="text-secondary">Username</p></label>
-                                <input type="username" class="form-control" id="" aria-describedby="emailHelp">
+                                <input type="text" class="form-control" id="username" aria-describedby="emailHelp" required>
                             </div>
                             <div class="mb-3">
                                 <label label for="exampleInputPassword1" class="form-label"><p class="text-secondary">Password</p></label>
-                                <input type="password" class="form-control" id="exampleInputPassword1">
+                                <input type="password" class="form-control" id="exampleInputPassword1" required>
                             </div>
                             <div class="d-grid col-6 mx-auto">
-                                <button class="btn btn-primary" type="button">Log In</button>
+                                <button class="btn btn-primary" type="submit">Log In</button>
                             </div>
-                            <!-- tidak ada create account -->
-                            <!-- <div class="form-text d-flex align-items-center justify-content-center ">
-                                Don’t have an account? <a href=""> Click here to create an account.</a>
-                            </div> -->
                         </form>
                     </div>
-                    
                 </div>
-
-                <!-- <div class="col-lg-6 vh-100 bg-primary"> -->
-                    <div class="col-sm-6 px-0 d-none d-sm-block">
-                        <img src="/images/magang-stock image(1).jpg"
-                        alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
-                    </div>
-
+                <div class="col-sm-6 px-0 d-none d-sm-block">
+                    <img src="/images/magang-stock image(1).jpg"
+                    alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
                 </div>
             </div>
         </div>
     </section>
-<!-- Section: Split screen -->
-
-
+    <!-- Section: Split screen -->
 
     <script src="NPM/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script>
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("exampleInputPassword1").value;
+
+            if (username === "" || password === "") {
+                alert("Username and password are required.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </body>
 </html>
