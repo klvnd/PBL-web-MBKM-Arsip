@@ -6,76 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Mahasiswa - Superadmin</title>
     <link rel="stylesheet" href="../NPM/node_modules/bootstrap/dist/css/bootstrap.css">
-    <style>
-        /* Set a fixed height for the sidebar and add some padding */
-        .sidebar {
-            height: 100%;
-            width: 250px; /* Adjust the width as needed */
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #343a40; /* Dark background color */
-            padding-top: 20px;
-            color: #fff; /* Text color for links */
-        }
-
-        /* Style the links inside the sidebar */
-        .sidebar a {
-            padding: 8px 16px;
-            text-decoration: none;
-            font-size: 18px;
-            color: #fff; /* Link color */
-            display: block;
-        }
-
-        /* Change the color on hover */
-        .sidebar a:hover {
-            background-color: #555; /* Dark gray hover color */
-        }
-
-        /* Style the content div */
-        .content {
-            margin-left: 250px; /* Adjust the margin to match the width of the sidebar */
-            padding: 16px;
-        }
-    </style>
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-light bg-light">
-            <div class="container-fluid d-flex justify-content-end">
-                <div>
-                    <embed src="../icon/out0.svg" type="">
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 bg-secondary" style="height: 100vh;">
+                <div class="my-3">
+                    <img src="../images/MBKM Arsip.png" width="200" height="34" alt="">
                 </div>
-                <div class="mx-2">
-                    <img src="../images/profile.png" alt="">
-                </div>
-                <div class="text-end">
-                    <h6 class="mb-0">Username</h6>
-                    <p class="mb-0">superadmin</p>
-                </div>
+                <p class="text-">Data master</p>
+                <a href="#" class="nav-link">Data Mahasiswa</a>
+                <a href="#" class="nav-link">Data Admin</a>
             </div>
-        </nav>
-    </header>
 
-    <div class="vh-100 d-flex">
+            <!-- headbar -->
+            <div class="col-md-9 col-lg-10">
+                <header>
+                    <nav class="navbar navbar-light">
+                        <div class="container-fluid d-flex justify-content-end">
+                            <div>
+                                <embed src="../icon/out0.svg" type="">
+                            </div>
+                            <div class="mx-2">
+                                <img src="../images/profile.png" alt="">
+                            </div>
+                            <div class="text-end">
+                                <h6 class="mb-0">Username</h6>
+                                <p class="mb-0">superadmin</p>
+                            </div>
+                        </div>
+                    </nav>
+                </header>
 
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <a href="#">Dashboard</a>
-            <a href="#">Students</a>
-            <a href="#">Courses</a>
-            <!-- Add more sidebar links as needed -->
+                <!-- Your main content goes here -->
+                <h2>Data Mahasiswa</h2>
+            </div>
+
         </div>
-
-        <!-- Main content area -->
-        <div class="content">
-            <!-- Your main content goes here -->
-            <h2>Main Content</h2>
-            <p>This is the main content area. Adjust the content as needed.</p>
-        </div>
-
     </div>
 
     <script src="../NPM/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
