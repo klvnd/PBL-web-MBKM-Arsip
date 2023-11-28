@@ -4,44 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Akun Mahasiswa - Admin</title>
+    <title>Data Akun mahasiswa - admin</title>
     <link rel="stylesheet" href="../NPM/node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        .bg-lightgrey {
+            background-color: #E9ECEF;
+        }
+    </style>
 </head>
 
-<body class="bg-white">
+<body class="bg-lightgrey">
     <div class="container-fluid">
         <div class="row">
-
+    
             <!-- Sidebar -->
-            <div class="col-md-3 col-lg-2 bg-white">
-                <div class="my-3">
+            <div class="col-md-3 col-lg-2 bg-white p-0">
+                <div class="my-3 mx-3">
                     <img src="../images/MBKM Arsip.png" width="200" height="34" alt="">
                 </div>
                 <h6 class="text-secondary px-4">Data Master</h6>
                 <div class="m-lg-3 bg text-white">
-                    <div class="bg-white text-secondary rounded-2 bg-primary d-flex gap-3 align-items-center justify-content-center text-center p-2" style="width: 220px;">
-                        <embed src="../icon/mhs0.svg" type="">
-                        <a href="../admin/datamhs_admn.html" class="nav-link">Data Mahasiswa</a>
-                    </div>
-                </div>
-                <div class="m-lg-3 bg text-white">
-                    <div class="bg-white text-secondary rounded-2 bg-primary d-flex gap-3 align-items-center justify-content-center text-center p-2" style="width: 220px;">
-                        <embed src="../icon/doc.svg" type="">
-                        <a href="../admin/pengajuan_admn.html" class="nav-link">Pengajuan Magang</a>
-                    </div>
-                </div>
-                <div class="m-lg-3 bg text-white">
-                    <div class="rounded-2 bg-primary d-flex gap-3 align-items-center justify-content-center text-center p-2" style="width: 220px;">
-                        <embed src="../icon/acc0.svg" type="">
-                        <a href="../admin/dataakunmhs_admn.html" class="nav-link">Akun Mahasiswa</a>
+                    <div class="rounded-2 bg-primary d-flex gap-3 align-items-center p-2" style="width: 220px;">
+                        <embed src="../icon/admin.svg" type="">
+                        <a href="#" class="nav-link">Data Mahasiswa</a>
                     </div>
                 </div>
             </div>
-
+    
             <!-- headbar -->
-            <div class="col-md-9 col-lg-10">
+            <div class="col-md-9 col-lg-10 p-0">
                 <header>
-                    <nav class="navbar navbar-light mb-0">
+                    <nav class="navbar navbar-light mb-0 bg-white">
                         <div class="container-fluid d-flex justify-content-end">
                             <div>
                                 <embed src="../icon/out0.svg" type="">
@@ -51,24 +44,209 @@
                             </div>
                             <div class="text-end">
                                 <h6 class="mb-0">Username</h6>
-                                <p class="mb-0 text-secondary">Admin</p>
+                                <p class="mb-0">superadmin</p>
                             </div>
                         </div>
                     </nav>
                 </header>
-
-                <!-- Your main content goes here -->
-                <div class=" vh-100">
-                    <div class="p-3">
-                        <h2>Data akun Mahasiswa</h2>
+    
+                <!-- Main content goes here -->
+                <div class=" p-4">
+                    <div class="d-flex flex-row">
+                        <div class="p-2">
+                            <p class="text-secondary">6 selected</p>
+                        </div>
+                        <div class="p-2">
+                            <button type="button" class="btn btn-light">
+                                Actions
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </button>
+                            <embed src="../icon/cross.svg" type="">
+                        </div>
+                        <div class="p-2">
+                            <div class="input-group rounded" style="width: 280px;">
+                                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                            </div>
+                        </div>
+                        <div class="p-2">
+                            <div class="card d-flex justify-content-center align-items-center" style="width: 15rem; height: 2.5rem;">
+                                <div class="card-body">
+                                    <div class="d-flex flex-row mt-3">
+                                        <div class="p-2">
+                                            <h5 class="card-title">Data Mahasiswa</h5>
+                                        </div>
+                                        <div class="p-2">
+                                            <p>500</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-2">
+                            <button type="button" class="btn btn-light">
+                                <embed src="../icon/refresh.svg" type="">
+                            </button>
+                        </div>
+                        <div class="p-2">
+                            <button type="button" class="btn btn-primary">
+                                <embed src="../icon/plus.svg" type="">
+                                Add New
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mt-2 mx-5" style="max-height: 510px; overflow-y: auto;">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" checked>
+                                    </th>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Nama Mahasiswa</th>
+                                    <th scope="col">Laporan</th>
+                                    <th scope="col">Logbook</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                                    <th scope="row">1</th>
+                                    <td>Mahasiswa 1</td>
+                                    <td>Mhs1</td>
+                                    <td>123!mhs</td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked></td>
+                                    <th scope="row">2</th>
+                                    <td>Mahasiswa 2</td>
+                                    <td>Mhs2</td>
+                                    <td>123!mhs</td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked></td>
+                                    <th scope="row">3</th>
+                                    <td>Mahasiswa 3</td>
+                                    <td>Mhs3</td>
+                                    <td>123!mhs</td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                                    <th scope="row">4</th>
+                                    <td>Mahasiswa 4</td>
+                                    <td>Mhs4</td>
+                                    <td>123!mhs</td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked></td>
+                                    <th scope="row">5</th>
+                                    <td>Mahasiswa 5</td>
+                                    <td>Mhs5</td>
+                                    <td>123!mhs</td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                                    <th scope="row">6</th>
+                                    <td>Mahasiswa 6</td>
+                                    <td>Mhs6</td>
+                                    <td>123!mhs</td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                                    <th scope="row">7</th>
+                                    <td>Mahasiswa 7</td>
+                                    <td>Mhs7</td>
+                                    <td>123!mhs</td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked></td>
+                                    <th scope="row">8</th>
+                                    <td>Mahasiswa 8</td>
+                                    <td>Mhs8</td>
+                                    <td>123!mhs</td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked></td>
+                                    <th scope="row">9</th>
+                                    <td>Mahasiswa 9</td>
+                                    <td>Mhs9</td>
+                                    <td>123!mhs</td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                                    <th scope="row">10</th>
+                                    <td>Mahasiswa 10</td>
+                                    <td>Mhs10</td>
+                                    <td>123!mhs</td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked></td>
+                                    <th scope="row">11</th>
+                                    <td>Mahasiswa 11</td>
+                                    <td>Mhs11</td>
+                                    <td>123!mhs</td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                                    <th scope="row">12</th>
+                                    <td>Mahasiswa 12</td>
+                                    <td>Mhs12</td>
+                                    <td>123!mhs</td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                                    <th scope="row">13</th>
+                                    <td>Mahasiswa 13</td>
+                                    <td>Mhs13</td>
+                                    <td>123!mhs</td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                                    <th scope="row">14</th>
+                                    <td>Mahasiswa 14</td>
+                                    <td>Mhs14</td>
+                                    <td>123!mhs</td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                                    <th scope="row">15</th>
+                                    <td>Mahasiswa 15</td>
+                                    <td>Mhs15</td>
+                                    <td>123!mhs</td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                                    <th scope="row">16</th>
+                                    <td>Mahasiswa 16</td>
+                                    <td>Mhs16</td>
+                                    <td>123!mhs</td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                                    <th scope="row">17</th>
+                                    <td>Mahasiswa 17</td>
+                                    <td>Mhs17</td>
+                                    <td>123!mhs</td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                                    <th scope="row">18</th>
+                                    <td>Mahasiswa 18</td>
+                                    <td>Mhs18</td>
+                                    <td>123!mhs</td>
+                                </tr>
+                            </tbody>                                            
+                        </table>
+                        
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
+    
 
-    <footer class="bg-light text-end">
+    <footer class="bg-light text-end fixed-bottom">
         <div class="container-fluid" style="width: 100%;">
             <div class="">
                 <p class="mb-0 p-3">
