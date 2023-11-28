@@ -26,11 +26,10 @@
                 <div class="m-lg-3 bg text-white">
                     <div class="rounded-2 bg-primary d-flex gap-3 align-items-center p-2" style="width: 220px;">
                         <embed src="../icon/admin.svg" type="">
-                        <a href="#" class="nav-link">Data Mahasiswa</a>
+                        <a href="#" class="nav-link">Data Admin</a>
                     </div>
                 </div>
             </div>
-    
             <!-- headbar -->
             <div class="col-md-9 col-lg-10 p-0">
                 <header>
@@ -49,7 +48,6 @@
                         </div>
                     </nav>
                 </header>
-    
                 <!-- Main content goes here -->
                 <div class=" p-4">
                     <div class="d-flex flex-row">
@@ -57,13 +55,16 @@
                             <p class="text-secondary">6 selected</p>
                         </div>
                         <div class="p-2">
-                            <button type="button" class="btn btn-light">
-                                Actions
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                                </svg>
-                            </button>
-                            <embed src="../icon/cross.svg" type="">
+                            <div class="dropdown">
+                                <button class="btn bg-white dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Actions
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">Edit</a></li>
+                                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                                </ul>
+                                <embed src="../icon/cross.svg" type="">
+                            </div>
                         </div>
                         <div class="p-2">
                             <div class="input-group rounded" style="width: 280px;">
@@ -75,10 +76,10 @@
                                 <div class="card-body">
                                     <div class="d-flex flex-row mt-3">
                                         <div class="p-2">
-                                            <h5 class="card-title">Data Mahasiswa</h5>
+                                            <h5 class="card-title">Data Admin</h5>
                                         </div>
                                         <div class="p-2">
-                                            <p>500</p>
+                                            <p>70</p>
                                         </div>
                                     </div>
                                 </div>
@@ -104,7 +105,7 @@
                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" checked>
                                     </th>
                                     <th scope="col">No</th>
-                                    <th scope="col">Nama Mahasiswa</th>
+                                    <th scope="col">Nama Admin</th>
                                     <th scope="col">Username</th>
                                     <th scope="col">Password</th>
                                 </tr>
@@ -113,128 +114,128 @@
                                 <tr>
                                     <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
                                     <th scope="row">1</th>
-                                    <td>Mahasiswa 1</td>
-                                    <td>Mhs1</td>
-                                    <td>123!mhs</td>
+                                    <td>Admin 1</td>
+                                    <td>Admn1</td>
+                                    <td>123!admn</td>
                                 </tr>
                                 <tr>
                                     <td><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked></td>
                                     <th scope="row">2</th>
-                                    <td>Mahasiswa 2</td>
-                                    <td>Mhs2</td>
-                                    <td>123!mhs</td>
+                                    <td>Admin 2</td>
+                                    <td>Admn2</td>
+                                    <td>123!admn</td>
                                 </tr>
                                 <tr>
                                     <td><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked></td>
                                     <th scope="row">3</th>
-                                    <td>Mahasiswa 3</td>
-                                    <td>Mhs3</td>
-                                    <td>123!mhs</td>
+                                    <td>Admin 3</td>
+                                    <td>Admn3</td>
+                                    <td>123!admn</td>
                                 </tr>
                                 <tr>
                                     <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
                                     <th scope="row">4</th>
-                                    <td>Mahasiswa 4</td>
-                                    <td>Mhs4</td>
-                                    <td>123!mhs</td>
+                                    <td>Admin 4</td>
+                                    <td>Admn4</td>
+                                    <td>123!admn</td>
                                 </tr>
                                 <tr>
                                     <td><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked></td>
                                     <th scope="row">5</th>
-                                    <td>Mahasiswa 5</td>
-                                    <td>Mhs5</td>
-                                    <td>123!mhs</td>
+                                    <td>Admin 5</td>
+                                    <td>Admn5</td>
+                                    <td>123!admn</td>
                                 </tr>
                                 <tr>
                                     <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
                                     <th scope="row">6</th>
-                                    <td>Mahasiswa 6</td>
-                                    <td>Mhs6</td>
-                                    <td>123!mhs</td>
+                                    <td>Admin 6</td>
+                                    <td>Adm6</td>
+                                    <td>123!admn</td>
                                 </tr>
                                 <tr>
                                     <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
                                     <th scope="row">7</th>
-                                    <td>Mahasiswa 7</td>
-                                    <td>Mhs7</td>
-                                    <td>123!mhs</td>
+                                    <td>Admin 7</td>
+                                    <td>Adm7</td>
+                                    <td>123!admn</td>
                                 </tr>
                                 <tr>
                                     <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked></td>
                                     <th scope="row">8</th>
-                                    <td>Mahasiswa 8</td>
-                                    <td>Mhs8</td>
-                                    <td>123!mhs</td>
+                                    <td>Admn 8</td>
+                                    <td>Admn8</td>
+                                    <td>123!admn</td>
                                 </tr>
                                 <tr>
                                     <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked></td>
                                     <th scope="row">9</th>
-                                    <td>Mahasiswa 9</td>
-                                    <td>Mhs9</td>
-                                    <td>123!mhs</td>
+                                    <td>Admin 9</td>
+                                    <td>Admin9</td>
+                                    <td>123!admn</td>
                                 </tr>
                                 <tr>
                                     <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
                                     <th scope="row">10</th>
-                                    <td>Mahasiswa 10</td>
-                                    <td>Mhs10</td>
-                                    <td>123!mhs</td>
+                                    <td>Admin 10</td>
+                                    <td>Admn10</td>
+                                    <td>123!admn</td>
                                 </tr>
                                 <tr>
                                     <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked></td>
                                     <th scope="row">11</th>
-                                    <td>Mahasiswa 11</td>
-                                    <td>Mhs11</td>
-                                    <td>123!mhs</td>
+                                    <td>Admin 11</td>
+                                    <td>Admn11</td>
+                                    <td>123!admn</td>
                                 </tr>
                                 <tr>
                                     <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
                                     <th scope="row">12</th>
-                                    <td>Mahasiswa 12</td>
-                                    <td>Mhs12</td>
-                                    <td>123!mhs</td>
+                                    <td>Admin 12</td>
+                                    <td>Admn12</td>
+                                    <td>123!admn</td>
                                 </tr>
                                 <tr>
                                     <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
                                     <th scope="row">13</th>
-                                    <td>Mahasiswa 13</td>
-                                    <td>Mhs13</td>
-                                    <td>123!mhs</td>
+                                    <td>Admin 13</td>
+                                    <td>Admn13</td>
+                                    <td>123!admn</td>
                                 </tr>
                                 <tr>
                                     <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
                                     <th scope="row">14</th>
-                                    <td>Mahasiswa 14</td>
-                                    <td>Mhs14</td>
-                                    <td>123!mhs</td>
+                                    <td>Admin 14</td>
+                                    <td>Admn14</td>
+                                    <td>123!admn</td>
                                 </tr>
                                 <tr>
                                     <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
                                     <th scope="row">15</th>
-                                    <td>Mahasiswa 15</td>
-                                    <td>Mhs15</td>
-                                    <td>123!mhs</td>
+                                    <td>Admin 15</td>
+                                    <td>Admn15</td>
+                                    <td>123!admn</td>
                                 </tr>
                                 <tr>
                                     <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
                                     <th scope="row">16</th>
-                                    <td>Mahasiswa 16</td>
-                                    <td>Mhs16</td>
-                                    <td>123!mhs</td>
+                                    <td>Admin 16</td>
+                                    <td>Admn16</td>
+                                    <td>123!Admn</td>
                                 </tr>
                                 <tr>
                                     <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
                                     <th scope="row">17</th>
-                                    <td>Mahasiswa 17</td>
-                                    <td>Mhs17</td>
-                                    <td>123!mhs</td>
+                                    <td>Admin 17</td>
+                                    <td>Admn17</td>
+                                    <td>123!Admn</td>
                                 </tr>
                                 <tr>
                                     <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
                                     <th scope="row">18</th>
-                                    <td>Mahasiswa 18</td>
-                                    <td>Mhs18</td>
-                                    <td>123!mhs</td>
+                                    <td>Admin 18</td>
+                                    <td>Admn18</td>
+                                    <td>123!admn</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -244,8 +245,6 @@
             </div>
         </div>
     </div>
-    
-
     <footer class="bg-light text-end fixed-bottom">
         <div class="container-fluid" style="width: 100%;">
             <div class="">
@@ -255,7 +254,6 @@
             </div>
         </div>
     </footer>
-
     <script src="../NPM/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
 </body>
 
