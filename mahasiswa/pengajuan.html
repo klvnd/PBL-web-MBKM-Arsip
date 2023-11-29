@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../NPM/node_modules/bootstrap/dist/css/bootstrap.css">
     <style>
         .bg-navy {
-            background-color: #0A2640
+            background-color: #0A2640;
         }
     </style>
 </head>
@@ -18,27 +18,79 @@
         <div>
             <img src="../images/MBKM Arsip1.png" width="200" height="34" alt="">
         </div>
-        
+
         <div class="navbar-nav ml-auto flex-row">
-            <a href="#">Home</a>
+            <div class="container">
+                <div class="row">
+                    <div class="col mx-3">
+                        <a class="nav-link text-white" href="homepage.html">Home</a>
+                    </div>
+                    <div class="col mx-3">
+                        <a class="nav-link text-white" href="pengajuan.html">Pengajuan</a>
+                    </div>
+                    <div class="col mx-3">
+                        <a class="nav-link text-white" href="riwayat.html">Riwayat</a>
+                    </div>
+                    <div class="col mx-3">
+                        <a class="nav-link text-white" href="upload.html">Upload</a>
+                    </div>
+                </div>
+            </div>
+
             <div class="rounded-pill p-2 bg-white d-inline-block" style="width: 160px;">
                 <p class="m-0 text-black text-center" style="font-weight: bold;">Username</p>
             </div>
-            
         </div>
     </nav>
 
-    <div class="mx-auto p-5 bg-dark-subtle text-center" style="max-width: 500px;">
+    <div class="mx-auto p-5 text-center" style="max-width: 700px;">
         <h1>Pengajuan Magang</h1>
         <p class="w-75 mx-auto">Mahasiswa dibatasi 2x pengajuan surat magang dan pemilihan jatah durasi magang ex: 1 semester/2 semester</p>
     </div>
 
-    <h1>Pengajuan</h1>
+    <div class="p-5 mx-5">
+        <div class="card bg-navy">
+            <div class="card-body text-white text-center">
+                <h1 class="p-4 mx-auto w-50">Upload Surat Pengantar Magang Yang Telah Anda Isi</h1>
+                <div class="p-4 d-flex align-items-center justify-content-center">
+                    <div class="">
+                        <input class="form-control" type="file" id="formFile">
+                    </div>
+                    <button class="btn btn-success rounded-5 m-lg-3" onclick="showConfirmation()">Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <div class="container-fluid text-white bg-black">
+            <div class="row align-items-center">
+                <a class="col-lg-5 p-lg-4 navbar-brand text-lg-left" href="#">
+                    <img src="../images/MBKM Arsip1.png" width="200" height="34" alt="">
+                </a>
+                <p class="col-lg m-lg-auto mb-0">
+                    Copyright: MBKM Arsip 2023
+                </p>
+            </div>
+        </div>
+    </footer>
 
     <!-- Include Bootstrap JS and Popper.js -->
     <script src="../NPM/node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="../NPM/node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="../NPM/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        function showConfirmation() {
+            var confirmUpload = confirm("Are you sure you want to upload?");
+            if (confirmUpload) {
+                // Add logic for handling the upload here
+                alert("File uploaded successfully!");
+            } else {
+                alert("Upload canceled.");
+            }
+        }
+    </script>
 </body>
 
 </html>
