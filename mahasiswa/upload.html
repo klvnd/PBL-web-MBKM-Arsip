@@ -1,16 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Mahasiswa</title>
+    <title>Upload</title>
     <link rel="stylesheet" href="../NPM/node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        .bg-navy {
+            background-color: #0A2640;
+        }
+    </style>
 </head>
-<body>
-    <!-- ubah kodenya dibagian bawah sini -->
-    <h1>Upload Mahasiswa</h1>
 
-    <!-- pembatas ubah code -->
-    <script src="../NPM/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+<body>
+    <nav class="navbar navbar-light bg-navy pt-5 px-5 pb-3">
+        <div>
+            <img src="../images/MBKM Arsip1.png" width="200" height="34" alt="">
+        </div>
+        <div class="navbar-nav ml-auto flex-row">
+            <div class="container">
+                <div class="row">
+                    <div class="col mx-3">
+                        <a class="nav-link text-white" href="homepage.html">Home</a>
+                    </div>
+                    <div class="col mx-3">
+                        <a class="nav-link text-white" href="pengajuan.html">Pengajuan</a>
+                    </div>
+                    <div class="col mx-3">
+                        <a class="nav-link text-white" href="riwayat.html">Riwayat</a>
+                    </div>
+                    <div class="col mx-3">
+                        <a class="nav-link text-white" href="upload.html">Upload</a>
+                    </div>
+                </div>
+            </div>
+            <div class="rounded-pill p-2 bg-white d-inline-block" style="width: 160px;">
+                <p class="m-0 text-black text-center" style="font-weight: bold;">Username</p>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mx-auto p-5 text-center" style="max-width: 700px;">
+        <h1>Fitur Upload</h1>
+    </div>
+
+    <div class="p-5 mx-5">
+        <div class="card bg-navy">
+            <div class="card-body text-white col-md-11">
+                <h1 class="p-4 mx-auto w-50">Upload Laporan Magang</h1>
+                <div class="p-4 d-flex align-items-center justify-content-center">
+                    <div class="">
+                        <input class="form-control" type="file" id="formFile">
+                    </div>
+                    <button class="btn btn-success rounded-5 m-lg-3" onclick="showConfirmation()">Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <div class="container-fluid text-white bg-black">
+            <div class="row align-items-center">
+                <a class="col-lg-5 p-lg-4 navbar-brand text-lg-left" href="#">
+                    <img src="../images/MBKM Arsip1.png" width="200" height="34" alt="">
+                </a>
+                <p class="col-lg m-lg-auto mb-0">
+                    Copyright: MBKM Arsip 2023
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Include Bootstrap JS and Popper.js -->
+    <script src="../NPM/node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="../NPM/node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="../NPM/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        function showConfirmation() {
+            var confirmUpload = confirm("Are you sure you want to upload?");
+            if (confirmUpload) {
+                // Add logic for handling the upload here
+                alert("File uploaded successfully!");
+            } else {
+                alert("Upload canceled.");
+            }
+        }
+    </script>
 </body>
+
 </html>
