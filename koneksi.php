@@ -1,7 +1,13 @@
 <?php
-$koneksi = mysqli_connect("localhost", "root", "", "db_magang");
-if (!$koneksi) {
-    die("Koneksi gagal: " . mysqli_connect_errno());
-}
+$server_name = "localhost";
+$username = "root";
+$password = "";
+$db = "db_magang";
 
+$conn = new mysqli($server_name, $username, $password, $db);
+
+if ($conn->connect_error) {
+    die("Connection failed : " . $conn->connect_error);
+}
+// echo "Connection Successfully";
 ?>
