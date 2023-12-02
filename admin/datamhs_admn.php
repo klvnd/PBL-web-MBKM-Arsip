@@ -95,7 +95,7 @@
                                 <tr>
                                     <th scope="col">No</th>
                                     <th scope="col">Nama Mahasiswa</th>
-                                    <th scope="col">Laporan</th>
+                                    <th scope="col">Laporan Akhir Magang</th>
                                     <th scope="col">Logbook</th>
                                 </tr>
                             </thead>
