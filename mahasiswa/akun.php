@@ -19,7 +19,7 @@
                 <img src="../images/MBKM Arsip1.png" width="200" height="34" alt="">
             </a>
             <div class="">
-                <a href="../mahasiswa/homepage.html" class="container btn text-white d-flex align-items-center">
+                <a href="../mahasiswa/homepage.php" class="container btn text-white d-flex align-items-center">
                     <embed src="../icon//back.svg" type="" class="mr-2">
                     <p class="mb-0 ms-2">Back to the Homepage</p>
                 </a>
@@ -34,7 +34,7 @@
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active text-white position-relative" href="/akun.html">
+                            <a class="nav-link active text-white position-relative" href="/akun.php">
                                 <embed src="../icon/user.svg" type="" class="mr-2 px-3">
                                 Akun
                                 <div class="m-lg-3">

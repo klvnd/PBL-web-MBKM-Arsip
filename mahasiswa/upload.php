@@ -22,16 +22,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col mx-3">
-                        <a class="nav-link text-white" href="homepage.html">Home</a>
+                        <a class="nav-link text-white" href="homepage.php">Home</a>
                     </div>
                     <div class="col mx-3">
-                        <a class="nav-link text-white" href="pengajuan.html">Pengajuan</a>
+                        <a class="nav-link text-white" href="pengajuan.php">Pengajuan</a>
                     </div>
                     <div class="col mx-3">
-                        <a class="nav-link text-white" href="riwayat.html">Riwayat</a>
+                        <a class="nav-link text-white" href="riwayat.php">Riwayat</a>
                     </div>
                     <div class="col mx-3">
-                        <a class="nav-link text-white" href="upload.html">Upload</a>
+                        <a class="nav-link text-white" href="upload.php">Upload</a>
                     </div>
                 </div>
             </div>
