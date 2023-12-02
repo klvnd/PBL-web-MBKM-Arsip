@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Mahasiswa - Admin</title>
+    <title>Pengajuan Magang - Admin</title>
     <link rel="stylesheet" href="../NPM/node_modules/bootstrap/dist/css/bootstrap.css">
     <style>
         .bg-lightgrey {
@@ -23,22 +23,22 @@
                     <img src="../images/MBKM Arsip.png" width="180" height="34" alt="">
                 </div>
                 <h6 class="text-secondary px-4">Data Master</h6>
-                <div class="m-lg-3 bg text-white">
-                    <div class="rounded-2 bg-primary d-flex gap-3 align-items-center p-2" style="width: 180px;">
-                        <embed src="../icon/mhs.svg" type="">
-                        <a href="datamhs_admn.html" class="nav-link">Data Mahasiswa</a>
-                    </div>
-                </div>
                 <div class="m-lg-3 bg">
                     <div class="rounded-2 bg-white d-flex gap-3 align-items-center p-2" style="width: 180px;">
-                            <embed src="../icon/doc.svg" type="">
-                        <a href="pengajuan_admn.html" class="nav-link">Pengajuan Magang</a>
+                        <embed src="../icon/mhs0.svg    " type="">
+                        <a href="datamhs_admn.php" class="nav-link">Data Mahasiswa</a>
+                    </div>
+                </div>
+                <div class="m-lg-3 bg text-white">
+                    <div class="rounded-2 bg-primary d-flex gap-3 align-items-center p-2" style="width: 180px;">
+                        <embed src="../icon/doc0.svg" type="">
+                        <a href="pengajuan_admn.php" class="nav-link">Pengajuan Magang</a>
                     </div>
                 </div>
                 <div class="m-lg-3 bg">
                     <div class="rounded-2 bg-white d-flex gap-3 align-items-center p-2" style="width: 180px;">
                             <embed src="../icon/admin0.svg" type="">
-                        <a href="dataakunmhs_admn.html" class="nav-link">Akun Mahasiswa</a>
+                        <a href="dataakunmhs_admn.php" class="nav-link">Akun Mahasiswa</a>
                     </div>
                 </div>
             </div>
@@ -77,10 +77,7 @@
                                 <div class="card-body">
                                     <div class="d-flex flex-row mt-3">
                                         <div class="p-2">
-                                            <h5 class="card-title">Data Mahasiswa</h5>
-                                        </div>
-                                        <div class="p-2">
-                                            <p>500</p>
+                                            <h6 class="card-title">Pengajuan Magang</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -98,8 +95,9 @@
                                 <tr>
                                     <th scope="col">No</th>
                                     <th scope="col">Nama Mahasiswa</th>
-                                    <th scope="col">Laporan</th>
-                                    <th scope="col">Logbook</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Surat Pengantar</th>
+                                    <th scope="col">Tandatangani</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -107,252 +105,252 @@
                                     <th scope="row">1</th>
                                     <td>Mahasiswa 1</td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .pdf
+                                        <button type="button" class="btn btn-success mx-2">Tertandatangani</button>
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">
-                                        .xlsx
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success mx-2">Upload</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">2</th>
                                     <td>Mahasiswa 2</td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .pdf
+                                        <button type="button" class="btn btn-success mx-2">Tertandatangani</button>
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">
-                                        .xlsx
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success mx-2">Upload</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">3</th>
                                     <td>Mahasiswa 3</td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .pdf
+                                        <button type="button" class="btn btn-success mx-2">Tertandatangani</button>
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">
-                                        .xlsx
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success mx-2">Upload</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">4</th>
                                     <td>Mahasiswa 4</td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .pdf
+                                        <button type="button" class="btn btn-secondary mx-2">Belum Ditandatangani</button>
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">
-                                        .xlsx
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success mx-2">Upload</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">5</th>
                                     <td>Mahasiswa 5</td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .pdf
+                                        <button type="button" class="btn btn-secondary mx-2">Belum Ditandatangani</button>
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">
-                                        .xlsx
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success mx-2">Upload</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">6</th>
                                     <td>Mahasiswa 6</td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .pdf
+                                        <button type="button" class="btn btn-secondary mx-2">Belum Ditandatangani</button>
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">
-                                        .xlsx
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success mx-2">Upload</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">7</th>
                                     <td>Mahasiswa 7</td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .pdf
+                                        <button type="button" class="btn btn-secondary mx-2">Belum Ditandatangani</button>
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">
-                                        .xlsx
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success mx-2">Upload</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">8</th>
                                     <td>Mahasiswa 8</td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .pdf
+                                        <button type="button" class="btn btn-secondary mx-2">Belum Ditandatangani</button>
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">
-                                        .xlsx
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success mx-2">Upload</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">9</th>
                                     <td>Mahasiswa 9</td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .pdf
+                                        <button type="button" class="btn btn-secondary mx-2">Belum Ditandatangani</button>
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">
-                                        .xlsx
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success mx-2">Upload</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">10</th>
                                     <td>Mahasiswa 10</td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .pdf
+                                        <button type="button" class="btn btn-secondary mx-2">Belum Ditandatangani</button>
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">
-                                        .xlsx
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success mx-2">Upload</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">11</th>
                                     <td>Mahasiswa 11</td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .pdf
+                                        <button type="button" class="btn btn-secondary mx-2">Belum Ditandatangani</button>
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">
-                                        .xlsx
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success mx-2">Upload</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">12</th>
                                     <td>Mahasiswa 12</td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .pdf
+                                        <button type="button" class="btn btn-secondary mx-2">Belum Ditandatangani</button>
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">
-                                        .xlsx
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success mx-2">Upload</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">13</th>
                                     <td>Mahasiswa 13</td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .pdf
+                                        <button type="button" class="btn btn-secondary mx-2">Belum Ditandatangani</button>
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">
-                                        .xlsx
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success mx-2">Upload</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">14</th>
                                     <td>Mahasiswa 14</td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .pdf
+                                        <button type="button" class="btn btn-secondary mx-2">Belum Ditandatangani</button>
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">
-                                        .xlsx
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success mx-2">Upload</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">15</th>
                                     <td>Mahasiswa 15</td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .pdf
+                                        <button type="button" class="btn btn-secondary mx-2">Belum Ditandatangani</button>
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">
-                                        .xlsx
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success mx-2">Upload</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">16</th>
                                     <td>Mahasiswa 16</td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .pdf
+                                        <button type="button" class="btn btn-secondary mx-2">Belum Ditandatangani</button>
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">
-                                        .xlsx
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success mx-2">Upload</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">17</th>
                                     <td>Mahasiswa 17</td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .pdf
+                                        <button type="button" class="btn btn-secondary mx-2">Belum Ditandatangani</button>
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">
-                                        .xlsx
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success mx-2">Upload</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">18</th>
                                     <td>Mahasiswa 18</td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .pdf
+                                        <button type="button" class="btn btn-secondary mx-2">Belum Ditandatangani</button>
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">
-                                        .xlsx
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success mx-2">Upload</button>
                                     </td>
                                 </tr>
                             </tbody>

@@ -1,11 +1,11 @@
 <?php
-require('proses_dataadmin.php');
-$user = read("SELECT * FROM tb_dataadmin");
+require('proses_dataakunmhs_admn.php');
+$user = read("SELECT * FROM tb_dataakunmhs");
 if (isset($_POST["create"])) {
-    create($_POST['nama_admin'], $_POST['username'], $_POST['password']);
+    create($_POST['nama_mhs'], $_POST['username'], $_POST['password']);
     }
 if (isset($_POST["edit"])) {
-    update($_POST['id_admin'], $_POST['nama_admin'], $_POST['username'], $_POST['password']);
+    update($_POST['id_akunmhs'], $_POST['nama_mhs'], $_POST['username'], $_POST['password']);
     }
 ?>
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ if (isset($_POST["edit"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data admin - Superadmin</title>
+    <title>Data Akun Mahasiswa - Admin</title>
     <link rel="stylesheet" href="../NPM/node_modules/bootstrap/dist/css/bootstrap.css">
     <style>
         .bg-lightgrey {
@@ -33,10 +33,22 @@ if (isset($_POST["edit"])) {
                     <img src="../images/MBKM Arsip.png" width="180" height="34" alt="">
                 </div>
                 <h6 class="text-secondary px-4">Data Master</h6>
+                <div class="m-lg-3 bg">
+                    <div class="rounded-2 bg-white d-flex gap-3 align-items-center p-2" style="width: 180px;">
+                        <embed src="../icon/mhs0.svg" type="">
+                        <a href="datamhs_admn.php" class="nav-link">Data Mahasiswa</a>
+                    </div>
+                </div>
+                <div class="m-lg-3 bg">
+                    <div class="rounded-2 bg-white d-flex gap-3 align-items-center p-2" style="width: 180px;">
+                            <embed src="../icon/doc.svg" type="">
+                        <a href="pengajuan_admn.php" class="nav-link">Pengajuan Magang</a>
+                    </div>
+                </div>
                 <div class="m-lg-3 bg text-white">
                     <div class="rounded-2 bg-primary d-flex gap-3 align-items-center p-2" style="width: 180px;">
-                        <embed src="../icon/admin.svg" type="">
-                        <a href="dataadmin.php" class="nav-link">Data Admin</a>
+                            <embed src="../icon/admin0.svg" type="">
+                        <a href="dataakunmhs_admn.php" class="nav-link">Akun Mahasiswa</a>
                     </div>
                 </div>
             </div>
@@ -55,7 +67,7 @@ if (isset($_POST["edit"])) {
                             </div>
                             <div class="text-end">
                                 <h6 class="mb-0">Username</h6>
-                                <p class="mb-0">superadmin</p>
+                                <p class="mb-0">admin</p>
                             </div>
                         </div>
                     </nav>
@@ -73,7 +85,7 @@ if (isset($_POST["edit"])) {
                                 <div class="card-body">
                                     <div class="d-flex flex-row mt-3">
                                         <div class="p-2">
-                                            <h5 class="card-title">Data Admin</h5>
+                                            <h5 class="card-title">Akun Mahasiswa</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -99,8 +111,8 @@ if (isset($_POST["edit"])) {
                                         <div class="modal-body">
                                             <form action="" method="POST">
                                                 <div class="mb-3">
-                                                    <label for="recipient-name" class="col-form-label">Nama Admin:</label>
-                                                    <input type="text" class="form-control" id="" name="nama_admin" required>
+                                                    <label for="recipient-name" class="col-form-label">Nama Mahasiswa:</label>
+                                                    <input type="text" class="form-control" id="" name="nama_mhs" required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="message-text" class="col-form-label">Username:</label>
@@ -126,7 +138,7 @@ if (isset($_POST["edit"])) {
                             <thead>
                                 <tr>                                  
                                     <th scope="col">No</th>
-                                    <th scope="col">Nama Admin</th>
+                                    <th scope="col">Nama Mahasiswa</th>
                                     <th scope="col">Username</th>
                                     <th scope="col">Password</th>
                                     <th scope="col">Actions</th>
@@ -144,19 +156,19 @@ if (isset($_POST["edit"])) {
                             <tbody>
                                 <tr>
                                     <th scope="row"><?= $i ?></th>
-                                    <td><?= $value["nama_admin"] ?></td>
+                                    <td><?= $value["nama_mhs"] ?></td>
                                     <td><?= $value["username"] ?></td>
                                     <td><?= $value["password"] ?></td>
                                     <td>
-                                    <a href="delete_dataadmin.php?id=<?= $value["id_admin"] ?>" class="btn btn-danger">Delete</a>
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#edit<?= $value['id_admin']?>">
+                                    <a href="delete_dataakunmhs_admn.php?id=<?= $value["id_akunmhs"] ?>" class="btn btn-danger">Delete</a>
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#edit<?= $value['id_akunmhs']?>">
                                         Edit
                                         </button>
                                     </td>
                                 </tr>
                             </tbody>
                         <?php $i++ ?>
-                        <div class="modal fade" id="edit<?= $value['id_admin']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="edit<?= $value['id_akunmhs']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -166,12 +178,12 @@ if (isset($_POST["edit"])) {
                                         <div class="modal-body">
                                             <form action="" method="POST">
                                                 <div class="mb-3" hidden>
-                                                    <label for="recipient-name" class="col-form-label">ID Admin:</label>
-                                                    <input type="text" value="<?= $value['id_admin'] ?>" class="form-control" id="" name="id_admin" required>
+                                                    <label for="recipient-name" class="col-form-label">ID Akun Mahasiswa:</label>
+                                                    <input type="text" value="<?= $value['id_akunmhs'] ?>" class="form-control" id="" name="id_akunmhs" required>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="recipient-name" class="col-form-label">Nama Admin:</label>
-                                                    <input type="text" value="<?= $value['nama_admin'] ?>" class="form-control" id="" name="nama_admin" required>
+                                                    <label for="recipient-name" class="col-form-label">Nama Mahasiswa:</label>
+                                                    <input type="text" value="<?= $value['nama_mhs'] ?>" class="form-control" id="" name="nama_mhs" required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="message-text" class="col-form-label">Username:</label>
