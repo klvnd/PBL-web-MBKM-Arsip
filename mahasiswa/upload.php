@@ -35,8 +35,20 @@
                     </div>
                 </div>
             </div>
-            <div class="rounded-pill p-2 bg-white d-inline-block" style="width: 160px;">
-                <p class="m-0 text-black text-center" style="font-weight: bold;">Username</p>
+            <div class="dropdown">
+                <a class="btn bg-white dropdown-toggle rounded-pill" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: bold; position: static;">
+                    Username
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" style="position: absolute;">
+                    <li><a class="dropdown-item" href="akun.php" style="font-weight: bold;">
+                        <embed src="../icon/user0.svg" type="" class="mr-2 px-3">
+                        Akun
+                    </a></li>
+                    <li><a class="dropdown-item" href="../landingpage.html" style="font-weight: bold;">
+                        <embed src="../icon/out1.svg" type="" class="mr-2 px-3">
+                        Sign Out
+                    </a></li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -84,10 +96,7 @@
         </div>
     </footer>
 
-    <!-- Include Bootstrap JS and Popper.js -->
-    <script src="../NPM/node_modules/jquery/dist/jquery.slim.min.js"></script>
-    <script src="../NPM/node_modules/popper.js/dist/umd/popper.min.js"></script>
-    <script src="../NPM/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../NPM/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
 
     <script>
         function showConfirmation() {
