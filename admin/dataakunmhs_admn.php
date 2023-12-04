@@ -83,7 +83,7 @@ if (isset($_POST["edit"])) {
                         <div class="p-2">
                             <div class="card d-flex justify-content-center align-items-center" style="width: 15rem; height: 2.5rem;">
                                 <div class="card-body">
-                                    <div class="d-flex flex-row mt-3">
+                                    <div class="d-flex flex-row mt-2">
                                         <div class="p-2">
                                             <h5 class="card-title">Akun Mahasiswa</h5>
                                         </div>
