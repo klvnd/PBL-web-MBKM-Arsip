@@ -18,7 +18,7 @@
         <div class="row">
     
             <!-- Sidebar -->
-            <div class="col-md-3 col-lg-2 bg-white p-0">
+            <div class="col-md-3 col-lg-2 bg-white p-0 vh-100">
                 <div class="my-3 mx-3">
                     <img src="../images/MBKM Arsip.png" width="180" height="34" alt="">
                 </div>
@@ -75,7 +75,7 @@
                         <div class="p-2">
                             <div class="card d-flex justify-content-center align-items-center" style="width: 15rem; height: 2.5rem;">
                                 <div class="card-body">
-                                    <div class="d-flex flex-row mt-3">
+                                    <div class="d-flex flex-row mt-2">
                                         <div class="p-2">
                                             <h5 class="card-title">Data Mahasiswa</h5>
                                         </div>
@@ -95,6 +95,7 @@
                                 <tr>
                                     <th scope="col">No</th>
                                     <th scope="col">Nama Mahasiswa</th>
+                                    <th scope="col">Tanggal</th>
                                     <th scope="col">Laporan Akhir Magang</th>
                                     <th scope="col">Logbook</th>
                                 </tr>
@@ -103,6 +104,7 @@
                                 <tr>
                                     <th scope="row">1</th>
                                     <td>Mahasiswa 1</td>
+                                    <td>4/12/2023</td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">
@@ -117,6 +119,7 @@
                                 <tr>
                                     <th scope="row">2</th>
                                     <td>Mahasiswa 2</td>
+                                    <td>4/12/2023</td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">
@@ -131,6 +134,7 @@
                                 <tr>
                                     <th scope="row">3</th>
                                     <td>Mahasiswa 3</td>
+                                    <td>4/12/2023</td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">
@@ -145,6 +149,7 @@
                                 <tr>
                                     <th scope="row">4</th>
                                     <td>Mahasiswa 4</td>
+                                    <td>4/12/2023</td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">
@@ -159,6 +164,7 @@
                                 <tr>
                                     <th scope="row">5</th>
                                     <td>Mahasiswa 5</td>
+                                    <td>4/12/2023</td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">
@@ -173,6 +179,7 @@
                                 <tr>
                                     <th scope="row">6</th>
                                     <td>Mahasiswa 6</td>
+                                    <td>4/12/2023</td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2">view</button>
                                         <embed src="../icon/download.svg" type="">

@@ -18,7 +18,7 @@
         <div class="row">
     
             <!-- Sidebar -->
-            <div class="col-md-3 col-lg-2 bg-white p-0">
+            <div class="col-md-3 col-lg-2 bg-white p-0 vh-100">
                 <div class="my-3 mx-3">
                     <img src="../images/MBKM Arsip.png" width="180" height="34" alt="">
                 </div>

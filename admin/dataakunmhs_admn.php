@@ -28,7 +28,7 @@ if (isset($_POST["edit"])) {
         <div class="row">
     
             <!-- Sidebar -->
-            <div class="col-md-3 col-lg-2 bg-white p-0">
+            <div class="col-md-3 col-lg-2 bg-white p-0 vh-100">
                 <div class="my-3 mx-3">
                     <img src="../images/MBKM Arsip.png" width="180" height="34" alt="">
                 </div>
@@ -47,7 +47,7 @@ if (isset($_POST["edit"])) {
                 </div>
                 <div class="m-lg-3 bg text-white">
                     <div class="rounded-2 bg-primary d-flex gap-3 align-items-center p-2" style="width: 180px;">
-                            <embed src="../icon/admin0.svg" type="">
+                            <embed src="../icon/admin.svg" type="">
                         <a href="dataakunmhs_admn.php" class="nav-link">Akun Mahasiswa</a>
                     </div>
                 </div>
