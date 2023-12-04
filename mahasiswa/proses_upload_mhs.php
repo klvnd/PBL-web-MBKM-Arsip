@@ -25,5 +25,5 @@ function upload()
         '$b'
         )";
     mysqli_query($conn, $query);
-    header('Location: upload.php');
+    // header('Location: upload.php');
 }
