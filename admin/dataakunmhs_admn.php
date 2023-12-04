@@ -92,9 +92,11 @@ if (isset($_POST["edit"])) {
                             </div>
                         </div>
                         <div class="p-2">
-                            <button type="button" class="btn btn-light">
-                                <embed src="../icon/refresh.svg" type="">
-                            </button>
+                            <a href="dataakunmhs_admn.php">
+                                <button type="button" class="btn btn-light">
+                                    <embed src="../icon/refresh.svg" type="">
+                                </button>
+                            </a>
                         </div>
                         <div class="p-2">
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">

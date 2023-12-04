@@ -84,9 +84,12 @@
                             </div>
                         </div>
                         <div class="p-2">
-                            <button type="button" class="btn btn-light">
-                                <embed src="../icon/refresh.svg" type="">
-                            </button>
+                            <a href="datamhs_admn.php">
+                                <button type="button" class="btn btn-light">
+                                    <embed src="../icon/refresh.svg" type="">
+                                </button>
+                            </a>
+                            
                         </div>
                     </div>
                     <div class="mt-2 mx-5" style="max-height: 510px; overflow-y: auto;">
