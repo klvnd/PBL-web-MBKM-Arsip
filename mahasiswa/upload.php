@@ -1,9 +1,8 @@
 <?php
 require('proses_upload_mhs.php');
 if (isset($_POST["submit"])) {
-    // update();
-    header('Location: homepage.php');
-    }
+    upload();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +20,7 @@ if (isset($_POST["submit"])) {
 </head>
 
 <body>
-    <!-- <nav class="navbar navbar-light bg-navy pt-5 px-5 pb-3">
+    <nav class="navbar navbar-light bg-navy pt-5 px-5 pb-3">
         <div>
             <img src="../images/MBKM Arsip1.png" width="200" height="34" alt="">
         </div>
@@ -48,17 +47,17 @@ if (isset($_POST["submit"])) {
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" style="position: absolute;">
                     <li><a class="dropdown-item" href="akun.php" style="font-weight: bold;">
-                        <embed src="../icon/user0.svg" type="" class="mr-2 px-3">
-                        Akun
-                    </a></li>
+                            <embed src="../icon/user0.svg" type="" class="mr-2 px-3">
+                            Akun
+                        </a></li>
                     <li><a class="dropdown-item" href="../landingpage.html" style="font-weight: bold;">
-                        <embed src="../icon/out1.svg" type="" class="mr-2 px-3">
-                        Sign Out
-                    </a></li>
+                            <embed src="../icon/out1.svg" type="" class="mr-2 px-3">
+                            Sign Out
+                        </a></li>
                 </ul>
             </div>
         </div>
-    </nav> -->
+    </nav>
 
     <div class="p-5 text-center">
         <h1>Fitur Upload</h1>
@@ -73,26 +72,28 @@ if (isset($_POST["submit"])) {
                         <h2 class="p-5">Upload Logbook</h2>
                     </div>
                     <div class="col-md-6">
-                        <div class="p-5">
-                            <input class="form-control" type="file" id="formFile" name="uploadLaporan">
-                        </div>
-                        <div class="p-5">
-                            <input class="form-control" type="file" id="formFile" name="uploadLogbook">
-                        </div>
+                        <form action="" method="post" enctype="multipart/form-data">
+                            <div class="p-5">
+                                <input class="form-control" type="file" id="formFile" name="uploadLaporan">
+                            </div>
+                            <div class="p-5">
+                                <input class="form-control" type="file" id="formFile" name="uploadLogbook">
+                            </div>
                     </div>
                 </div>
                 <div class="p-3">
-                <form action="" method="post" enctype="multipart/form-data">
-                    <button class="btn btn-success rounded-5 text-black p" style="font-size: 20px;" onclick="showConfirmation()"><h4>Upload</h4></button>
+                    <button class="btn btn-success rounded-5 text-black p" style="font-size: 20px;" onclick="showConfirmation()">
+                        <h4>Upload</h4>
+                    </button>
                     <button type="submit" id="submit" name="submit" hidden></button>
-                </form>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    
-    
-    
+
+
+
     <footer class="bg-light text-center text-lg-start mt-5">
         <div class="container-fluid text-white bg-black">
             <div class="row align-items-center">
@@ -111,7 +112,6 @@ if (isset($_POST["submit"])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
     <script>
-
         function showConfirmation() {
             var confirmUpload = confirm("Are you sure you want to upload?");
             if (confirmUpload) {

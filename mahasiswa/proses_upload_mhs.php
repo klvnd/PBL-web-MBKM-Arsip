@@ -1,5 +1,5 @@
 <?php
-include("/xampp/htdocs/PBL-web-MBKM-Arsip/koneksi.php");
+include("../koneksi.php");
 function changeName($img)
 {
     $namaFile = $img['name'];
@@ -7,14 +7,23 @@ function changeName($img)
     $split = explode('.', $namaFile);
     $ekstensi = strtolower(end($split));
     $uniq = uniqid() . '.' . $ekstensi;
-    move_uploaded_file($tmp_name, 'img/img/' . $uniq);
+    move_uploaded_file($tmp_name, 'img/' . $uniq);
 
     return $uniq;
 }
 
 function upload()
 {
-    $a = var_dump($_FILES['uploadLaporan']);
-    echo "<script>alert('asd')</script>";
+    global $conn;
+    $a = changeName($_FILES['uploadLaporan']);
+    $b = changeName($_FILES['uploadLogbook']);
+    $query = "INSERT INTO tb_datamhs VALUES (
+        '',
+        'asd',
+        '0000-00-00',
+        '$a',
+        '$b'
+        )";
+    mysqli_query($conn, $query);
+    header('Location: upload.php');
 }
-?>
