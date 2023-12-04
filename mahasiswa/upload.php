@@ -1,3 +1,10 @@
+<?php
+require('proses_upload_mhs.php');
+if (isset($_POST["submit"])) {
+    // update();
+    header('Location: homepage.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +21,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-navy pt-5 px-5 pb-3">
+    <!-- <nav class="navbar navbar-light bg-navy pt-5 px-5 pb-3">
         <div>
             <img src="../images/MBKM Arsip1.png" width="200" height="34" alt="">
         </div>
@@ -51,7 +58,7 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
 
     <div class="p-5 text-center">
         <h1>Fitur Upload</h1>
@@ -67,15 +74,18 @@
                     </div>
                     <div class="col-md-6">
                         <div class="p-5">
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" type="file" id="formFile" name="uploadLaporan">
                         </div>
                         <div class="p-5">
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" type="file" id="formFile" name="uploadLogbook">
                         </div>
                     </div>
                 </div>
                 <div class="p-3">
+                <form action="" method="post" enctype="multipart/form-data">
                     <button class="btn btn-success rounded-5 text-black p" style="font-size: 20px;" onclick="showConfirmation()"><h4>Upload</h4></button>
+                    <button type="submit" id="submit" name="submit" hidden></button>
+                </form>
                 </div>
             </div>
         </div>
@@ -98,11 +108,15 @@
 
     <script src="../NPM/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
     <script>
+
         function showConfirmation() {
             var confirmUpload = confirm("Are you sure you want to upload?");
             if (confirmUpload) {
                 // Add logic for handling the upload here
+                $("#submit").click();
                 alert("File uploaded successfully!");
             } else {
                 alert("Upload canceled.");
