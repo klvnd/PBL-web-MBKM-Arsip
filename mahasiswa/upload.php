@@ -82,10 +82,10 @@ if (isset($_POST["submit"])) {
                     </div>
                 </div>
                 <div class="p-3">
-                    <button class="btn btn-success rounded-5 text-black p" style="font-size: 20px;" onclick="showConfirmation()">
+                    <button class="btn btn-success rounded-5 text-black p" style="font-size: 20px;" type="submit" name="submit">
                         <h4>Upload</h4>
                     </button>
-                    <button type="submit" id="submit" name="submit" hidden></button>
+                    <button type="submit" id="submit" hidden></button>
                     </form>
                 </div>
             </div>
