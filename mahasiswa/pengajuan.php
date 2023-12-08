@@ -1,3 +1,12 @@
+<?php 
+require("./proses_pengajuan_mhs.php");
+include('../proses_login.php');
+check();
+$dospem = getDospem();
+if(isset($_POST["submit"])) {
+    uploadSurat($_POST["dospem"], $_SESSION['user']['id_akunmhs']);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,14 +46,14 @@
             </div>
             <div class="dropdown">
                 <a class="btn bg-white dropdown-toggle rounded-pill" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: bold; position: static;">
-                    Username
+                    <?php echo $_SESSION['user']['nama_mhs'] ?>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" style="position: absolute;">
                     <li><a class="dropdown-item" href="akun.php" style="font-weight: bold;">
                         <embed src="../icon/user0.svg" type="" class="mr-2 px-3">
                         Akun
                     </a></li>
-                    <li><a class="dropdown-item" href="../landingpage.html" style="font-weight: bold;">
+                    <li><a class="dropdown-item" href="../proses_login.php?logout=true" style="font-weight: bold;">
                         <embed src="../icon/out1.svg" type="" class="mr-2 px-3">
                         Sign Out
                     </a></li>
@@ -63,10 +72,20 @@
             <div class="card-body text-white text-center">
                 <h1 class="p-4 mx-auto w-50">Upload Surat Pengantar Magang Yang Telah Anda Isi</h1>
                 <div class="p-4 d-flex align-items-center justify-content-center">
-                    <div class="">
-                        <input class="form-control" type="file" id="formFile">
+                <form action="" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                            <input class="form-control" type="file" name="suratpengantar" id="formFile" accept=".doc, .docx">
                     </div>
-                    <button class="btn btn-success rounded-5 m-lg-3 text-black" onclick="showConfirmation()">Upload</button>
+                    <div class="mb-3">
+                    <select name="dospem" class="form-select" id="dospem" required>
+                        <option value="" disabled selected>Pilih Dosen Pembimbing</option>
+                        <?php foreach ($dospem as $value) :?>
+                            <option value="<?= $value['id_dospem'] ?>"><?= $value['nama_dosen'] ?></option>
+                        <?php endforeach ?>
+                    </select>
+                    </div>
+                    <button class="btn btn-success rounded-5 m-lg-3 text-black" type="submit" name="submit">Upload</button>
+                </form>    
                 </div>
             </div>
         </div>

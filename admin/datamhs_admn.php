@@ -1,3 +1,9 @@
+<?php
+require('./proses_datamhs_admn.php');
+include('../proses_login.php');
+check();
+$user = read("SELECT M.*, A.nama_mhs FROM tb_datamhs M INNER JOIN tb_dataakunmhs A ON M.id_mahasiswa = A.id_akunmhs");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,6 +37,12 @@
                 </div>
                 <div class="m-lg-3 bg">
                     <div class="rounded-2 bg-white d-flex gap-3 align-items-center p-2" style="width: 180px;">
+                            <embed src="../icon/admin0.svg" type="">
+                        <a href="datadospem_admn.php" class="nav-link">Data Dosen Pembimbing</a>
+                    </div>
+                </div>
+                <div class="m-lg-3 bg">
+                    <div class="rounded-2 bg-white d-flex gap-3 align-items-center p-2" style="width: 180px;">
                             <embed src="../icon/doc.svg" type="">
                         <a href="pengajuan_admn.php" class="nav-link">Pengajuan Magang</a>
                     </div>
@@ -48,16 +60,14 @@
                 <header>
                     <nav class="navbar navbar-light mb-0 bg-white">
                         <div class="container-fluid d-flex justify-content-end">
-                            <a href="../landingpage.html">
-                                <button type="button" class="btn btn-dark">
+                                <a type="button" href="../proses_login.php?logout=true" class="btn btn-dark">
                                     <embed src="../icon/out.svg" type="">
-                                </button>
-                            </a>
+                                </a>
                             <div class="mx-2">
                                 <img src="../images/profile.png" alt="">
                             </div>
                             <div class="text-end">
-                                <h6 class="mb-0">Username</h6>
+                            <h6 class="mb-0"><?php echo $_SESSION['user']['nama_admin'] ?></h6>
                                 <p class="mb-0">admin</p>
                             </div>
                         </div>
@@ -103,98 +113,35 @@
                                     <th scope="col">Logbook</th>
                                 </tr>
                             </thead>
+                            <?php $i = 1; ?>
+                            <?php if ($user == null) { ?>
+                            <tbody>
+                            <tr>
+                                <td colspan="5" style="text-align: center;">Tidak ada data</td>
+                            </tr>
+                            </tbody>
+                            <?php } else { ?>
+                            <?php foreach ($user as $value) : ?>
                             <tbody>
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mahasiswa 1</td>
-                                    <td>4/12/2023</td>
+                                    <th scope="row"><?= $i ?></th>
+                                    <td><?= $value["nama_mhs"] ?></td>
+                                    <td><?= $value["tanggal"] ?></td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
+                                        <a class="btn btn-success mx-2" <?= $value['laporanakhir'] === '' ? print 'href=""' : print 'href="../mahasiswa/laporan/' . $value['laporanakhir'] . '"'?>>view</a>
                                         <embed src="../icon/download.svg" type="">
                                         .pdf
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .xlsx
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Mahasiswa 2</td>
-                                    <td>4/12/2023</td>
-                                    <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .pdf
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .xlsx
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Mahasiswa 3</td>
-                                    <td>4/12/2023</td>
-                                    <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .pdf
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .xlsx
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Mahasiswa 4</td>
-                                    <td>4/12/2023</td>
-                                    <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .pdf
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .xlsx
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Mahasiswa 5</td>
-                                    <td>4/12/2023</td>
-                                    <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .pdf
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .xlsx
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>Mahasiswa 6</td>
-                                    <td>4/12/2023</td>
-                                    <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                        .pdf
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
+                                        <a class="btn btn-success mx-2" <?= $value['logbook'] === '' ? print 'href=""' : print 'href="ms-excel:ofe|u|http://localhost/PBL-web-MBKM-Arsip/mahasiswa/logbook/' . $value['logbook'] . '"'?>>view</a>
                                         <embed src="../icon/download.svg" type="">
                                         .xlsx
                                     </td>
                                 </tr>
                             </tbody>
+                            <?php $i++ ?>
+                            <?php endforeach ?>
+                        <?php } ?>
                         </table>
                     </div>
                 </div>

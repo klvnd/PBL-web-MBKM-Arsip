@@ -1,7 +1,9 @@
 <?php
 require('proses_upload_mhs.php');
+include('../proses_login.php');
+check();
 if (isset($_POST["submit"])) {
-    upload();
+    upload($_SESSION['user']['id_akunmhs']);
 }
 ?>
 <!DOCTYPE html>
@@ -43,14 +45,14 @@ if (isset($_POST["submit"])) {
             </div>
             <div class="dropdown">
                 <a class="btn bg-white dropdown-toggle rounded-pill" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: bold; position: static;">
-                    Username
+                    <?php echo $_SESSION['user']['nama_mhs']?>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" style="position: absolute;">
                     <li><a class="dropdown-item" href="akun.php" style="font-weight: bold;">
                             <embed src="../icon/user0.svg" type="" class="mr-2 px-3">
                             Akun
                         </a></li>
-                    <li><a class="dropdown-item" href="../landingpage.html" style="font-weight: bold;">
+                    <li><a class="dropdown-item" href="../proses_login.php?logout=true" style="font-weight: bold;">
                             <embed src="../icon/out1.svg" type="" class="mr-2 px-3">
                             Sign Out
                         </a></li>
@@ -74,10 +76,10 @@ if (isset($_POST["submit"])) {
                     <div class="col-md-6">
                         <form action="" method="post" enctype="multipart/form-data">
                             <div class="p-5">
-                                <input class="form-control" type="file" id="formFile" name="uploadLaporan">
+                                <input class="form-control" type="file" id="formFile" name="uploadLaporan" accept="application/pdf" required>
                             </div>
                             <div class="p-5">
-                                <input class="form-control" type="file" id="formFile" name="uploadLogbook">
+                                <input class="form-control" type="file" id="formFile" name="uploadLogbook" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" required>
                             </div>
                     </div>
                 </div>

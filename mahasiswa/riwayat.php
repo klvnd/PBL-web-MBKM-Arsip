@@ -1,5 +1,15 @@
+<?php
+include('../proses_login.php');
+include('./proses_riwayat_mhs.php');
+check();
+$id = $_SESSION['user']['id_akunmhs'];
+$data = read("SELECT P.*, D.nama_dosen FROM tb_pengajuan P INNER JOIN tb_dospem D ON P.id_dospem = D.id_dospem WHERE id_akunmhs = '$id'");
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:v="urn:schemas-microsoft-com:vml" 
+        xmlns:o="urn:schemas-microsoft-com:office:office" 
+        xmlns:w="urn:schemas-microsoft-com:office:word" 
+        xmlns:m="http://schemas.microsoft.com/office/2004/12/omml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,14 +50,14 @@
             </div>
             <div class="dropdown">
                 <a class="btn bg-white dropdown-toggle rounded-pill" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: bold; position: static;">
-                    Username
+                    <?php echo $_SESSION['user']['nama_mhs'] ?>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" style="position: absolute;">
                     <li><a class="dropdown-item" href="akun.php" style="font-weight: bold;">
                         <embed src="../icon/user0.svg" type="" class="mr-2 px-3">
                         Akun
                     </a></li>
-                    <li><a class="dropdown-item" href="../landingpage.html" style="font-weight: bold;">
+                    <li><a class="dropdown-item" href="../proses_login.php?logout=true" style="font-weight: bold;">
                         <embed src="../icon/out1.svg" type="" class="mr-2 px-3">
                         Sign Out
                     </a></li>
@@ -66,49 +76,42 @@
                 <h4 class="p-4 w-25">Riwayat Pengajuan Surat Pengantar Magang</h4>
                 <div class="p-4">
                     <table class="table table-borderless">
-                        <tbody>
+                        <thead>
                             <tr>
-                                <th scope="row">
-                                    <button type="button" class="btn btn-danger btn-sm">Tidak diterima</button>
-                                </th>
-                                <td>
-                                    <h6>Surat Pengantar</h6>
-                                    <p class="text-secondary">Terkirim</p>
-                                </td>
-                                <td>
-                                    <h6 class="text-danger">15:30 | 19 jan 2023</h6>
-                                    <p class="text-secondary">45 Minutes Ago</p>
-                                </td>
-                                <td>
-                                    <h6>
-                                        Nama Dosen Pembimbing
-                                    </h6>
-                                </td>
+                                <th scope="col">No</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Dosen Pembimbing</th>
                             </tr>
-                            <tr>
-                                <th scope="row">
-                                    <button type="button" class="btn btn-success btn-sm">Diterima</button>
-                                </th>
-                                <td>
-                                    <h6>Surat Pengantar</h6>
-                                    <p class="text-secondary">Terkirim</p>
-                                </td>
-                                <td>
-                                    <h6 class="text-danger">11:20 | 22 jan 23</h6>
-                                    <p class="text-secondary">60 Minutes Ago</p>
-                                </td>
-                                <td>
-                                    <h6>
-                                        Nama Dosen Pembimbing
-                                    </h6>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                        </thead>
+                        <?php $i = 1; ?>
+                        <?php if ($data == null) { ?>
+                            <tbody>
+                                <tr>
+                                    <td colspan="d" style="text-align: center;">Tidak Ada Data</td>
+                                </tr>
+                            </tbody>
+                        <?php } else { ?>
+                            <?php foreach ($data as $value) : ?>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row"><?= $i ?></th>
+                                        <td scope="row">
+                                            <button type="button" <?= $value['status'] === 'Belum' ? print "class='btn btn-danger btn-sm'" : print "class='btn btn-success btn-sm'" ?>><?php echo $value['status'] === 'Belum' ? "Tidak Diterima" : "Diterima" ?></button>
+                                        </td>
+                                        <td>
+                                            <h6>
+                                                <?php echo $value['nama_dosen'] ?>
+                                            </h6>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <?php $i++ ?>
+                            <?php endforeach ?>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
     <div class="p-5 mx-auto" style="max-width: 800px;">
         <div class="card w-100 bg-navy">
@@ -119,10 +122,11 @@
                 <div class="text-right px-3 ml-3">
                     <h2>Download Surat Pengantar Magang</h2>
                     <p>Yang telah ditandatangani</p>
-                    <button type="button" class="btn rounded-5 bg-white text-black btn-sm"><h6>Download</h6></button>
+                    <a href="./surat/<?php print $value['suratpengantar'] ?>" class="btn rounded-5 bg-white text-black btn-sm"><h6>Download</h6></a>
                 </div>
             </div>
         </div>
+        <?php } ?>
     </div>
     
     

@@ -20,12 +20,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col mx-3">
-                        <a class="nav-link text-white" href="landingpage.html">Home</a>
+                        <a class="nav-link text-white" href="index.php">Home</a>
                     </div>
                 </div>
             </div>
             <div class="rounded-pill p-2 bg-white d-inline-block" style="width: 160px;">
-                <a href="login.html">
+                <a href="login.php">
                     <p class="m-0 text-black text-center" style="font-weight: bold;">Log In</p>
                 </a>
             </div>
@@ -128,7 +128,7 @@
         </p>
         <div class="d-flex justify-content-center">
             <a href="Template Surat Pengantar Magang.pdf" download>
-                <button class="btn bg-navy text-white btn-primary rounded-5 btn-lg" style="font-weight: bold;">Download</button>
+                <a class="btn bg-navy text-white btn-primary rounded-5 btn-lg" href="./mahasiswa/template.docx" style="font-weight: bold;">Download</a>
             </a>
         </div>
     </div>

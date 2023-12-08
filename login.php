@@ -1,3 +1,9 @@
+<?php 
+require('./proses_login.php');
+if(isset($_POST['submit'])) {
+    login($_POST['username'], $_POST['password']);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,17 +24,17 @@
                             <h2 class="d-flex align-items-center justify-content-center">Log In</h2>
                         </div>
                         
-                        <form onsubmit="return validateForm()">
+                        <form action="" method="post">
                             <div class="mb-3">
                                 <label class="form-label"><p class="text-secondary">Username</p></label>
-                                <input type="text" class="form-control" id="username" aria-describedby="emailHelp" required>
+                                <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" required>
                             </div>
                             <div class="mb-3">
                                 <label label for="exampleInputPassword1" class="form-label"><p class="text-secondary">Password</p></label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" required>
+                                <input type="password" class="form-control" name="password" id="exampleInputPassword1" required>
                             </div>
                             <div class="d-grid col-6 mx-auto">
-                                <button class="btn btn-primary" type="submit">Log In</button>
+                                <button class="btn btn-primary" type="submit" name="submit">Log In</button>
                             </div>
                         </form>
                     </div>
@@ -42,18 +48,5 @@
     </section>
 
     <script src="NPM/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    <script>
-        function validateForm() {
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("exampleInputPassword1").value;
-
-            if (username === "" || password === "") {
-                alert("Username and password are required.");
-                return false;
-            }
-
-            return true;
-        }
-    </script>
 </body>
 </html>

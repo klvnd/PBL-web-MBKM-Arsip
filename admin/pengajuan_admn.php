@@ -1,3 +1,15 @@
+<?php 
+require('proses_pengajuan_admn.php');
+include('../proses_login.php');
+check();
+$user = read("SELECT P.*, D.nama_dosen, M.nama_mhs FROM tb_pengajuan P 
+INNER JOIN tb_dospem D ON P.id_dospem = D.id_dospem
+INNER JOIN tb_dataakunmhs M ON P.id_akunmhs = M.id_akunmhs
+");
+if (isset($_POST["upload"])) {
+    update($_POST['id_ajuan'], $_POST['path']);
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,6 +41,12 @@
                         <a href="datamhs_admn.php" class="nav-link">Data Mahasiswa</a>
                     </div>
                 </div>
+                <div class="m-lg-3 bg">
+                    <div class="rounded-2 bg-white d-flex gap-3 align-items-center p-2" style="width: 180px;">
+                            <embed src="../icon/admin0.svg" type="">
+                        <a href="datadospem_admn.php" class="nav-link">Data Dosen Pembimbing</a>
+                    </div>
+                </div>
                 <div class="m-lg-3 bg text-white">
                     <div class="rounded-2 bg-primary d-flex gap-3 align-items-center p-2" style="width: 180px;">
                         <embed src="../icon/doc0.svg" type="">
@@ -48,16 +66,14 @@
                 <header>
                     <nav class="navbar navbar-light mb-0 bg-white">
                         <div class="container-fluid d-flex justify-content-end">
-                            <a href="../landingpage.html">
-                                <button type="button" class="btn btn-dark">
+                            <a type="button" href="../proses_login.php?logout=true" class="btn btn-dark">
                                     <embed src="../icon/out.svg" type="">
-                                </button>
                             </a>
                             <div class="mx-2">
                                 <img src="../images/profile.png" alt="">
                             </div>
                             <div class="text-end">
-                                <h6 class="mb-0">Username</h6>
+                            <h6 class="mb-0"><?php echo $_SESSION['user']['nama_admin'] ?></h6>
                                 <p class="mb-0">admin</p>
                             </div>
                         </div>
@@ -97,97 +113,67 @@
                                 <tr>
                                     <th scope="col">No</th>
                                     <th scope="col">Nama Mahasiswa</th>
+                                    <th scope="col">Nama Dosen Pembimbing</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Surat Pengantar</th>
                                     <th scope="col">Tandatangani</th>
                                 </tr>
                             </thead>
+                            <?php $i = 1; ?>
+                            <?php if ($user == null) { ?>
+                                <tbody>
+                            <tr>
+                                <td colspan="6" style="text-align: center;">Tidak ada data</td>
+                            </tr>
+                            </tbody>
+                            <?php } else {
+                                $belum = "Belum Tertandangani"
+                                ?>
+                            <?php foreach ($user as $value) : ?>
                             <tbody>
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mahasiswa 1</td>
+                                    <th scope="row"><?= $i ?></th>
+                                    <td><?= $value["nama_mhs"] ?></td>
+                                    <td><?= $value["nama_dosen"] ?></td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2">Tertandatangani</button>
+                                        <button type="button" <?= $value['status'] == 'Sudah' ? print "class='btn btn-success mx-2'" : "class='btn btn-secondary mx-2'" ?>  disabled><?php echo $value['status'] == "Belum" ? "Belum Tertandatangani" : "Tertandatangani" ?></button>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
+                                        <a <?= $value['suratpengantar'] === '' ? print 'href=""' : print 'href="ms-word:ofe|u|http://localhost/PBL-web-MBKM-Arsip/mahasiswa/surat/' . $value['suratpengantar'] . '"' ?> class="btn btn-success mx-2">view</a>
                                         <embed src="../icon/download.svg" type="">
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2">Upload</button>
+                                        <button type="button" class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $value["id_ajuan"]?>">Upload</button>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Mahasiswa 2</td>
-                                    <td>
-                                        <button type="button" class="btn btn-success mx-2">Tertandatangani</button>
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-success mx-2">Upload</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Mahasiswa 3</td>
-                                    <td>
-                                        <button type="button" class="btn btn-success mx-2">Tertandatangani</button>
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-success mx-2">Upload</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Mahasiswa 4</td>
-                                    <td>
-                                        <button type="button" class="btn btn-secondary mx-2">Belum Ditandatangani</button>
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-success mx-2">Upload</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Mahasiswa 5</td>
-                                    <td>
-                                        <button type="button" class="btn btn-secondary mx-2">Belum Ditandatangani</button>
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-success mx-2">Upload</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>Mahasiswa 6</td>
-                                    <td>
-                                        <button type="button" class="btn btn-secondary mx-2">Belum Ditandatangani</button>
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-success mx-2">view</button>
-                                        <embed src="../icon/download.svg" type="">
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-success mx-2">Upload</button>
-                                    </td>
-                                </tr>
+                                <div class="modal fade" id="exampleModal<?= $value['id_ajuan'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Upload</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="" method="POST" enctype="multipart/form-data">
+                                                <input type="text" name="id_ajuan" value="<?= $value['id_ajuan'] ?>" hidden>
+                                                <input type="text" name="path" value="<?= $value['suratpengantar'] ?>" hidden>
+                                                <div class="mb-3">
+                                                    <label for="recipient-name" class="col-form-label">Surat Pengantar (TTD):</label>
+                                                    <input type="file" class="form-control" id="" name="surat" accept=".doc, .docx" required>
+                                                </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary" name="upload">Upload</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                             </tbody>
+                            <?php $i++ ?>
+                        <?php endforeach ?>
+                        <?php } ?>
                         </table>
                     </div>
                 </div>

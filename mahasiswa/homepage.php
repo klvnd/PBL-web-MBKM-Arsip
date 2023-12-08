@@ -1,3 +1,7 @@
+<?php
+include('../proses_login.php');
+check();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,14 +39,14 @@
             </div>
             <div class="dropdown">
                 <a class="btn bg-white dropdown-toggle rounded-pill" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: bold; position: static;">
-                    Username
+                    <?php echo $_SESSION["user"]["nama_mhs"] ?>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" style="position: absolute;">
                     <li><a class="dropdown-item" href="akun.php" style="font-weight: bold;">
                         <embed src="../icon/user0.svg" type="" class="mr-2 px-3">
                         Akun
                     </a></li>
-                    <li><a class="dropdown-item" href="../landingpage.html" style="font-weight: bold;">
+                    <li><a class="dropdown-item" href="../proses_login.php?logout=true" style="font-weight: bold;">
                         <embed src="../icon/out1.svg" type="" class="mr-2 px-3">
                         Sign Out
                     </a></li>
@@ -146,7 +150,7 @@
         </p>
         <div class="d-flex justify-content-center">
             <a href="Template Surat Pengantar Magang.pdf" download>
-                <button class="btn bg-navy text-white btn-primary rounded-5 btn-lg" style="font-weight: bold;">Download</button>
+                <a class="btn bg-navy text-white btn-primary rounded-5 btn-lg" href="./template.docx" style="font-weight: bold;">Download</a>
             </a>
         </div>
     </div>

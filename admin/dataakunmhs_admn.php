@@ -1,5 +1,7 @@
 <?php
 require('proses_dataakunmhs_admn.php');
+include('../proses_login.php');
+check();
 $user = read("SELECT * FROM tb_dataakunmhs");
 if (isset($_POST["create"])) {
     create($_POST['nama_mhs'], $_POST['username'], $_POST['password']);
@@ -41,7 +43,13 @@ if (isset($_POST["edit"])) {
                 </div>
                 <div class="m-lg-3 bg">
                     <div class="rounded-2 bg-white d-flex gap-3 align-items-center p-2" style="width: 180px;">
-                            <embed src="../icon/doc.svg" type="">
+                            <embed src="../icon/admin0.svg" type="">
+                        <a href="datadospem_admn.php" class="nav-link">Data Dosen Pembimbing</a>
+                    </div>
+                </div>
+                <div class="m-lg-3 bg">
+                    <div class="rounded-2 bg-white d-flex gap-3 align-items-center p-2" style="width: 180px;">
+                            <embed src="../icon/doc.svg" type="">   
                         <a href="pengajuan_admn.php" class="nav-link">Pengajuan Magang</a>
                     </div>
                 </div>
@@ -57,16 +65,14 @@ if (isset($_POST["edit"])) {
                 <header>
                     <nav class="navbar navbar-light mb-0 bg-white">
                         <div class="container-fluid d-flex justify-content-end">
-                            <a href="../landingpage.html">
-                                <button type="button" class="btn btn-dark">
+                            <a type="button" href="../proses_login.php?logout=true" class="btn btn-dark">
                                     <embed src="../icon/out.svg" type="">
-                                </button>
-                            </a>
+                                </a>
                             <div class="mx-2">
                                 <img src="../images/profile.png" alt="">
                             </div>
                             <div class="text-end">
-                                <h6 class="mb-0">Username</h6>
+                            <h6 class="mb-0"><?php echo $_SESSION['user']['nama_admin'] ?></h6>
                                 <p class="mb-0">admin</p>
                             </div>
                         </div>
