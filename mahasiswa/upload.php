@@ -77,9 +77,11 @@ if (isset($_POST["submit"])) {
                         <form action="" method="post" enctype="multipart/form-data">
                             <div class="p-5">
                                 <input class="form-control" type="file" id="formFile" name="uploadLaporan" accept="application/pdf" required>
+                                <p>*File yang dapat diupload hanya berformat .pdf</p>
                             </div>
                             <div class="p-5">
                                 <input class="form-control" type="file" id="formFile" name="uploadLogbook" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" required>
+                                <p>*File yang dapat diupload hanya berformat .xls atau .xlsx</p>
                             </div>
                     </div>
                 </div>

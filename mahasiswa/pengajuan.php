@@ -75,6 +75,7 @@ if(isset($_POST["submit"])) {
                 <form action="" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                             <input class="form-control" type="file" name="suratpengantar" id="formFile" accept=".doc, .docx">
+                            <p class="pb-3 mx-auto">*File yang dapat diupload hanya berformat .doc atau .docx</p>
                     </div>
                     <div class="mb-3">
                     <select name="dospem" class="form-select" id="dospem" required>
