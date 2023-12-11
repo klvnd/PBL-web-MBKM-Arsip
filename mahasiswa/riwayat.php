@@ -53,10 +53,10 @@ $data = read("SELECT P.*, D.nama_dosen FROM tb_pengajuan P INNER JOIN tb_dospem 
                     <?php echo $_SESSION['user']['nama_mhs'] ?>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" style="position: absolute;">
-                    <li><a class="dropdown-item" href="akun.php" style="font-weight: bold;">
+                    <!-- <li><a class="dropdown-item" href="akun.php" style="font-weight: bold;">
                         <embed src="../icon/user0.svg" type="" class="mr-2 px-3">
                         Akun
-                    </a></li>
+                    </a></li> -->
                     <li><a class="dropdown-item" href="../proses_login.php?logout=true" style="font-weight: bold;">
                         <embed src="../icon/out1.svg" type="" class="mr-2 px-3">
                         Sign Out

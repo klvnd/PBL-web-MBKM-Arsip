@@ -41,10 +41,10 @@ if (isset($_POST["edit"])) {
                         <a href="datamhs_admn.php" class="nav-link">Data Mahasiswa</a>
                     </div>
                 </div>
-                <div class="m-lg-3 bg text-white">
+                <div class="m-lg-3 bg">
                     <div class="rounded-2 bg-primary d-flex gap-3 align-items-center p-2" style="width: 180px;">
-                        <embed src="../icon/mhs.svg" type="">
-                        <a href="datadospem_admn.php" class="nav-link">Data Mahasiswa</a>
+                            <embed src="../icon/admin.svg" type="">
+                        <a href="datadospem_admn.php" class="nav-link text-white">Data Dosen Pembimbing</a>
                     </div>
                 </div>
                 <div class="m-lg-3 bg">

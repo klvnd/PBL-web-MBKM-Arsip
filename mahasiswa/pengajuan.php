@@ -49,10 +49,10 @@ if(isset($_POST["submit"])) {
                     <?php echo $_SESSION['user']['nama_mhs'] ?>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" style="position: absolute;">
-                    <li><a class="dropdown-item" href="akun.php" style="font-weight: bold;">
+                    <!-- <li><a class="dropdown-item" href="akun.php" style="font-weight: bold;">
                         <embed src="../icon/user0.svg" type="" class="mr-2 px-3">
                         Akun
-                    </a></li>
+                    </a></li> -->
                     <li><a class="dropdown-item" href="../proses_login.php?logout=true" style="font-weight: bold;">
                         <embed src="../icon/out1.svg" type="" class="mr-2 px-3">
                         Sign Out
@@ -91,7 +91,7 @@ if(isset($_POST["submit"])) {
         </div>
     </div>
 
-    <div class="mx-auto p-5" style="max-width: 700px;">
+    <!-- <div class="mx-auto p-5" style="max-width: 700px;">
         <h1 class="text-center">Atau buat Surat Pengantar Secara Otomatis</h1>
         <div class="text-center">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Form Surat Pengantar</button>
@@ -151,7 +151,7 @@ if(isset($_POST["submit"])) {
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     
     <footer class="bg-light text-center text-lg-start mt-5">
         <div class="container-fluid text-white bg-black">
