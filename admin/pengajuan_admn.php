@@ -141,9 +141,11 @@ if (isset($_POST["upload"])) {
                                     <td>
                                         <a <?= $value['suratpengantar'] === '' ? print 'href=""' : print 'href="ms-word:ofe|u|http://localhost/PBL-web-MBKM-Arsip/mahasiswa/surat/' . $value['suratpengantar'] . '"' ?> class="btn btn-success mx-2">view</a>
                                         <embed src="../icon/download.svg" type="">
+                                        .doc /.docx
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $value["id_ajuan"]?>">Upload</button>
+                                        .doc / .docx
                                     </td>
                                 </tr>
                                 <div class="modal fade" id="exampleModal<?= $value['id_ajuan'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

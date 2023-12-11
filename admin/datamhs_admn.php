@@ -135,7 +135,7 @@ $user = read("SELECT M.*, A.nama_mhs FROM tb_datamhs M INNER JOIN tb_dataakunmhs
                                     <td>
                                         <a class="btn btn-success mx-2" <?= $value['logbook'] === '' ? print 'href=""' : print 'href="ms-excel:ofe|u|http://localhost/PBL-web-MBKM-Arsip/mahasiswa/logbook/' . $value['logbook'] . '"'?>>view</a>
                                         <embed src="../icon/download.svg" type="">
-                                        .xlsx
+                                        .xls / .xlsx
                                     </td>
                                 </tr>
                             </tbody>
