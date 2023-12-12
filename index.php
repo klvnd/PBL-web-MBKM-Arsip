@@ -40,6 +40,18 @@
         </div>
     </div>
 
+    <div class="mx-auto p-5" style="max-width: 700px;">
+        <h1>Download Template Surat Pengantar Magang</h1>
+        <p class="py-2 text-secondary">
+            Untuk melakukan tahap pendaftaran magang, diharapkan untuk mengisi dan melengkapi data yang diberikan di Template Surat Pengantar Magang
+        </p>
+        <div class="d-flex justify-content-center">
+            <a href="Template Surat Pengantar Magang.pdf" download>
+                <a class="btn bg-navy text-white btn-primary rounded-5 btn-lg" href="./mahasiswa/template.docx" style="font-weight: bold;">Download</a>
+            </a>
+        </div>
+    </div>
+
     <div class="container">
         <div class="pt-5 mt-5 row justify-content-center">
             <div class="col-md-3 mb-4">
@@ -57,8 +69,8 @@
     </div>
 
 
-    <div>
-        <div class="p-5 text-center">
+    <div class="bg-navy">
+        <div class="p-5 text-center text-white">
             <h1>Apa itu Kampus Merdeka?</h1>
             <p class="p-5 w-75 mx-auto">Kampus Merdeka merupakan bagian dari kebijakan Merdeka Belajar oleh Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi Republik Indonesia yang memberikan kesempaatan bagi mahasiswa/mahasiswi untuk mengasah kemampuan sesuai bakat dan minat dengan terjun langsung ke dunia kerja sebagai persiapan karier masa depan.</p>
 
@@ -118,18 +130,6 @@
                     Magang di mitra yang berbeda-beda selama 1 tahun
                 </li>
             </ul>
-        </div>
-    </div>
-
-    <div class="mx-auto p-5" style="max-width: 700px;">
-        <h1>Download Template Surat Pengantar Magang</h1>
-        <p class="py-2 text-secondary">
-            Untuk melakukan tahap pendaftaran magang, diharapkan untuk mengisi dan melengkapi data yang diberikan di Template Surat Pengantar Magang
-        </p>
-        <div class="d-flex justify-content-center">
-            <a href="Template Surat Pengantar Magang.pdf" download>
-                <a class="btn bg-navy text-white btn-primary rounded-5 btn-lg" href="./mahasiswa/template.docx" style="font-weight: bold;">Download</a>
-            </a>
         </div>
     </div>
 

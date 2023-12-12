@@ -36,11 +36,11 @@ if (isset($_POST["submit"])) {
                         <a class="nav-link text-white" href="pengajuan.php">Pengajuan</a>
                     </div>
                     <div class="col mx-3">
-                        <a class="nav-link text-white" href="riwayat.php">Riwayat</a>
-                    </div>
-                    <div class="col mx-3">
                         <a class="nav-link text-white" href="upload.php">Upload</a>
                     </div>
+                    <div class="col mx-3">
+                        <a class="nav-link text-white" href="riwayat.php">Riwayat</a>
+                    </div>                    
                 </div>
             </div>
             <div class="dropdown">

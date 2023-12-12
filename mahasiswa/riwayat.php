@@ -41,10 +41,10 @@ $data = read("SELECT P.*, D.nama_dosen FROM tb_pengajuan P INNER JOIN tb_dospem 
                         <a class="nav-link text-white" href="pengajuan.php">Pengajuan</a>
                     </div>
                     <div class="col mx-3">
-                        <a class="nav-link text-white" href="riwayat.php">Riwayat</a>
+                        <a class="nav-link text-white" href="upload.php">Upload</a>
                     </div>
                     <div class="col mx-3">
-                        <a class="nav-link text-white" href="upload.php">Upload</a>
+                        <a class="nav-link text-white" href="riwayat.php">Riwayat</a>
                     </div>
                 </div>
             </div>
