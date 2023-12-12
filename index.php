@@ -79,7 +79,7 @@
 
     <div>
         <div class="p-5 m-5">
-            <h2 class="px-5">Persyaratan Magang</h2>
+            <h2 class="px-5">Persyaratan Maganh</h2>
             <div class="p-5 w-75 mx-auto">
                 <div class="d-flex py-3">
                     <embed src="icon/bluecheck.svg" type="">
