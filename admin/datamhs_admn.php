@@ -111,6 +111,7 @@ $user = read("SELECT M.*, A.nama_mhs FROM tb_datamhs M INNER JOIN tb_dataakunmhs
                                     <th scope="col">Tanggal</th>
                                     <th scope="col">Laporan Akhir Magang</th>
                                     <th scope="col">Logbook</th>
+                                    <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <?php $i = 1; ?>
@@ -136,6 +137,12 @@ $user = read("SELECT M.*, A.nama_mhs FROM tb_datamhs M INNER JOIN tb_dataakunmhs
                                         <a class="btn btn-success mx-2" <?= $value['logbook'] === '' ? print 'href=""' : print 'href="ms-excel:ofe|u|http://localhost/PBL-web-MBKM-Arsip/mahasiswa/logbook/' . $value['logbook'] . '"'?>>view</a>
                                         <embed src="../icon/download.svg" type="">
                                         .xls / .xlsx
+                                    </td>
+                                    <td>
+                                    <a class="btn btn-danger">Delete</a>
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#edit">
+                                        Edit
+                                        </button>
                                     </td>
                                 </tr>
                             </tbody>

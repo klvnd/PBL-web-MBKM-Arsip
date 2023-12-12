@@ -81,6 +81,10 @@ $data = read("SELECT P.*, D.nama_dosen FROM tb_pengajuan P INNER JOIN tb_dospem 
                                 <th scope="col">No</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Dosen Pembimbing</th>
+                                <th scope="col">Surat Pengantar Magang</th>
+                                <th scope="col">Laporan Akhir Magang</th>
+                                <th scope="col">Logbook</th>
+                                <th scope="col">Tanggal</th>
                             </tr>
                         </thead>
                         <?php $i = 1; ?>
@@ -102,6 +106,21 @@ $data = read("SELECT P.*, D.nama_dosen FROM tb_pengajuan P INNER JOIN tb_dospem 
                                             <h6>
                                                 <?php echo $value['nama_dosen'] ?>
                                             </h6>
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                            
                                         </td>
                                     </tr>
                                 </tbody>

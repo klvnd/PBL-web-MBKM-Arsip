@@ -113,10 +113,12 @@ if (isset($_POST["upload"])) {
                                 <tr>
                                     <th scope="col">No</th>
                                     <th scope="col">Nama Mahasiswa</th>
+                                    <th scope="col">Tanggal</th>
                                     <th scope="col">Nama Dosen Pembimbing</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Surat Pengantar</th>
                                     <th scope="col">Tandatangani</th>
+                                    <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <?php $i = 1; ?>
@@ -134,6 +136,7 @@ if (isset($_POST["upload"])) {
                                 <tr>
                                     <th scope="row"><?= $i ?></th>
                                     <td><?= $value["nama_mhs"] ?></td>
+                                    <td></td>
                                     <td><?= $value["nama_dosen"] ?></td>
                                     <td>
                                         <button type="button" <?= $value['status'] == 'Sudah' ? print "class='btn btn-success mx-2'" : "class='btn btn-secondary mx-2'" ?>  disabled><?php echo $value['status'] == "Belum" ? "Belum Tertandatangani" : "Tertandatangani" ?></button>
@@ -146,6 +149,12 @@ if (isset($_POST["upload"])) {
                                     <td>
                                         <button type="button" class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $value["id_ajuan"]?>">Upload</button>
                                         .doc / .docx
+                                    </td>
+                                    <td>
+                                    <a class="btn btn-danger">Delete</a>
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#edit">
+                                        Edit
+                                        </button>
                                     </td>
                                 </tr>
                                 <div class="modal fade" id="exampleModal<?= $value['id_ajuan'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
