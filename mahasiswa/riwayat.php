@@ -67,13 +67,13 @@ $data = read("SELECT P.*, D.nama_dosen FROM tb_pengajuan P INNER JOIN tb_dospem 
     </nav>
     
     <div class="p-5 text-center">
-        <h1>Riwayat Pengajuan Magang</h1>
+        <h1>Riwayat</h1>
     </div>
 
     <div class="p-5 mx-5">
         <div class="card bg-lightgrey">
             <div class="card-body">
-                <h4 class="p-4 w-25">Riwayat Pengajuan Surat Pengantar Magang</h4>
+                <h4 class="p-4 w-25">Daftar Riwayat</h4>
                 <div class="p-4">
                     <table class="table table-borderless">
                         <thead>
@@ -108,19 +108,16 @@ $data = read("SELECT P.*, D.nama_dosen FROM tb_pengajuan P INNER JOIN tb_dospem 
                                             </h6>
                                         </td>
                                         <td>
-
+                                            Surat Pengantar.docx
                                         </td>
                                         <td>
-
+                                            Laporan.pdf
                                         </td>
                                         <td>
-
+                                            logbook.xls
                                         </td>
                                         <td>
-                                            
-                                        </td>
-                                        <td>
-                                            
+                                            13/12/2023
                                         </td>
                                     </tr>
                                 </tbody>

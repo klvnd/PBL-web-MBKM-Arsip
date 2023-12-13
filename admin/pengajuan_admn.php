@@ -107,7 +107,7 @@ if (isset($_POST["upload"])) {
                             </a>
                         </div>
                     </div>
-                    <div class="mt-2 mx-5" style="max-height: 510px; overflow-y: auto;">
+                    <div class="mt-2" style="max-height: 510px; overflow-y: auto;">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -136,7 +136,7 @@ if (isset($_POST["upload"])) {
                                 <tr>
                                     <th scope="row"><?= $i ?></th>
                                     <td><?= $value["nama_mhs"] ?></td>
-                                    <td></td>
+                                    <td>13/12/2023</td>
                                     <td><?= $value["nama_dosen"] ?></td>
                                     <td>
                                         <button type="button" <?= $value['status'] == 'Sudah' ? print "class='btn btn-success mx-2'" : "class='btn btn-secondary mx-2'" ?>  disabled><?php echo $value['status'] == "Belum" ? "Belum Tertandatangani" : "Tertandatangani" ?></button>
