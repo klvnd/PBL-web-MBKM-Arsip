@@ -2,6 +2,12 @@
 require('proses_pengajuan_admn.php');
 include('../proses_login.php');
 check();
+function splitTanggal($date) {
+    $split = explode(" ", $date);
+    $tanggal = explode("-", $split[0]);
+    return $tanggal[2] . "/" . $tanggal[1] . "/" . $tanggal[0];
+}
+$array = ['Sudah', 'Tolak'];
 $user = read("SELECT P.*, D.nama_dosen, M.nama_mhs FROM tb_pengajuan P 
 INNER JOIN tb_dospem D ON P.id_dospem = D.id_dospem
 INNER JOIN tb_dataakunmhs M ON P.id_akunmhs = M.id_akunmhs
@@ -117,7 +123,7 @@ if (isset($_POST["upload"])) {
                                     <th scope="col">Nama Dosen Pembimbing</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Surat Pengantar</th>
-                                    <th scope="col">Tandatangani</th>
+                                    <!-- <th scope="col">Tandatangani</th> -->
                                     <th scope="col">Actions</th>
                                 </tr>
                             </thead>
@@ -136,10 +142,10 @@ if (isset($_POST["upload"])) {
                                 <tr>
                                     <th scope="row"><?= $i ?></th>
                                     <td><?= $value["nama_mhs"] ?></td>
-                                    <td>13/12/2023</td>
+                                    <td><?= splitTanggal($value['updated_at']) ?></td>
                                     <td><?= $value["nama_dosen"] ?></td>
                                     <td>
-                                        <button type="button" <?= $value['status'] == 'Sudah' ? print "class='btn btn-success mx-2'" : "class='btn btn-secondary mx-2'" ?>  disabled><?php echo $value['status'] == "Belum" ? "Belum Tertandatangani" : "Tertandatangani" ?></button>
+                                        <button type="button" <?= $value['status'] == 'Sudah' ? print "class='btn btn-success mx-2'" : (($value['status'] == 'Belum') ? "class='btn btn-secondary mx-2'" : "class='btn btn-danger mx-2'") ?>  disabled><?php echo $value['status'] == "Belum" ? "Belum Tertandatangani" : (($value['status'] == 'Sudah') ? "Tertandatangani" : "Perlu Direvisi") ?></button>
                                     </td>
                                     <td>
                                         <a <?= $value['suratpengantar'] === '' ? print 'href=""' : print 'href="ms-word:ofe|u|http://localhost/PBL-web-MBKM-Arsip/mahasiswa/surat/' . $value['suratpengantar'] . '"' ?> class="btn btn-success mx-2">view</a>
@@ -147,40 +153,51 @@ if (isset($_POST["upload"])) {
                                         .doc /.docx
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $value["id_ajuan"]?>">Upload</button>
-                                        .doc / .docx
-                                    </td>
-                                    <td>
-                                    <a class="btn btn-danger">Delete</a>
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#edit">
+                                        <button type="button" class="btn btn-success" onclick="clickFileChoose(<?php echo $i ?>)" data-bs-toggle="modal" data-bs-target="#edit<?= $value['id_ajuan'] ?>">
                                         Edit
                                         </button>
                                     </td>
-                                </tr>
-                                <div class="modal fade" id="exampleModal<?= $value['id_ajuan'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Upload</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form action="" method="POST" enctype="multipart/form-data">
-                                                <input type="text" name="id_ajuan" value="<?= $value['id_ajuan'] ?>" hidden>
-                                                <input type="text" name="path" value="<?= $value['suratpengantar'] ?>" hidden>
-                                                <div class="mb-3">
-                                                    <label for="recipient-name" class="col-form-label">Surat Pengantar (TTD):</label>
-                                                    <input type="file" class="form-control" id="" name="surat" accept=".doc, .docx" required>
+                                    <div class="modal fade" id="edit<?= $value['id_ajuan'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="edit">Edit</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
+                                                <div class="modal-body">
+                                                    <div class="mb-3">
+                                                        <label for="recipient-name" class="col-form-label">Status:</label>
+                                                        <form action="" method="POST" enctype="multipart/form-data">
+                                                            <input type="text" name="" class="indexInput" value="<?= $i ?>" hidden>
+                                                            <input type="text" name="id_ajuan" class="idInput" value="<?= $value['id_ajuan'] ?>" hidden>
+                                                            <input type="text" name="asd" class="statusInput" value="<?= $value['status'] ?>" hidden>
+                                                            <input type="text" name="path" value="<?= $value['suratpengantar'] ?>" hidden>
+                                                            <select name="status" class="form-select inputSelect" onchange="hiddenFileChoose(<?php echo $i ?>)" id="status" required> 
+                                                                <option value="" disabled selected>Pilih Status</option> 
+                                                                <?php foreach ($array as $item) :?>
+                                                                    <option <?php if ($item == $value['status']) { echo 'selected="select"'; echo "value='$item'"; } else { echo 'selected="select"'; echo  "value='$item'"; } ?>><?php if ($item == "Sudah") { echo "Terima"; } else { echo "Perlu Revisi"; } ?></option> 
+                                                                <?php endforeach ?>
+                                                            </select>
+                                                        </div>
+                                                        <div id="fileChoose" hidden>
+                                                            <div class="mb-3">
+                                                                <label for="message-text" class="col-form-label">Upload (Yang sudah ditandatangani):</label>
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <input class="form-control" type="file" name="suratpengantar" id="formFile" accept=".doc, .docx">
+                                                                <p class="pb-3 mx-auto">*File yang dapat diupload hanya berformat .doc atau .docx</p>
+                                                            </div>
+                                                        </div>
+                                                
+                                                <div class="modal-footer">
+                                                    <button type="button" onclick="clickFileChoose(<?php echo $i ?>)" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary" name="upload">Edit</button>
+                                                </div>
+                                                </form>
+                                            </div>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary" name="upload">Upload</button>
-                                        </div>
-                                        </form>
                                     </div>
-                                </div>
-                            </div>
+                                </tr>
                             </tbody>
                             <?php $i++ ?>
                         <?php endforeach ?>
@@ -204,6 +221,48 @@ if (isset($_POST["upload"])) {
     </footer>
 
     <script src="../NPM/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script>
+        function clickFileChoose(index) {
+            const getValue = document.getElementsByClassName('statusInput')
+            const getId = document.getElementsByClassName('idInput')
+            const getIndex = document.getElementsByClassName('indexInput')
+            const options = document.getElementById('status').options
+            for (let i = 0; i < getIndex.length; i++) {
+                if (getIndex[i].value === index.toString()) {
+                    if (getValue[i].value === 'Sudah') {
+                        options.selectedIndex = 1
+                        hiddenFileChoose(getIndex[i])
+                        break
+                    } else if (getValue[i].value === 'Tolak') {
+                        options.selectedIndex = 2
+                        break
+                    } else {
+                        options.selectedIndex = 0
+                        break
+                    }
+                    break
+                }
+            }
+            
+        }
+        function hiddenFileChoose(index) {
+            const getSelect = document.getElementsByClassName('form-select')
+            const getIndex = document.getElementsByClassName('indexInput')
+            const valueSelect = document.getElementById('status')
+            for (let i = 0; i < getIndex.length; i++) {
+                if (getIndex[i].value === index.toString()) {
+                    if (valueSelect.value === 'Sudah') {
+                        console.log(valueSelect.value)
+                        document.getElementById('fileChoose').hidden = false
+                    } else {
+                        document.getElementById('fileChoose').hidden = true
+                    }
+                    break
+                }
+            }
+        }
+    </script>
+</body>
 </body>
 
 </html>

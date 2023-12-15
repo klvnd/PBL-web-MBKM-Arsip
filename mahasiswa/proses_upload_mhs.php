@@ -27,10 +27,9 @@ function fileExcel($img)
 function upload($id)
 {
     global $conn;
+    $d = date("Y-m-d");
     $a = filePdf($_FILES['uploadLaporan']);
     $b = fileExcel($_FILES['uploadLogbook']);
-    $d = date("Y-m-d");
-    echo $d;
     $query = "INSERT INTO tb_datamhs VALUES (
         '',
         '$id',

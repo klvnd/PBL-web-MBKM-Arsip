@@ -3,7 +3,15 @@ include('../proses_login.php');
 include('./proses_riwayat_mhs.php');
 check();
 $id = $_SESSION['user']['id_akunmhs'];
-$data = read("SELECT P.*, D.nama_dosen FROM tb_pengajuan P INNER JOIN tb_dospem D ON P.id_dospem = D.id_dospem WHERE id_akunmhs = '$id'");
+$data = read("SELECT P.*, D.nama_dosen, M.* FROM tb_pengajuan P 
+INNER JOIN tb_dospem D ON P.id_dospem = D.id_dospem 
+INNER JOIN tb_datamhs M ON P.id_akunmhs = M.id_mahasiswa
+WHERE id_akunmhs = '$id'");
+function splitTanggal($date) {
+    $split = explode(" ", $date);
+    $tanggal = explode("-", $split[0]);
+    return $tanggal[2] . "/" . $tanggal[1] . "/" . $tanggal[0];
+}
 ?>
 <!DOCTYPE html>
 <html xmlns:v="urn:schemas-microsoft-com:vml" 
@@ -91,7 +99,7 @@ $data = read("SELECT P.*, D.nama_dosen FROM tb_pengajuan P INNER JOIN tb_dospem 
                         <?php if ($data == null) { ?>
                             <tbody>
                                 <tr>
-                                    <td colspan="d" style="text-align: center;">Tidak Ada Data</td>
+                                    <td colspan="7" style="text-align: center;">Tidak Ada Data</td>
                                 </tr>
                             </tbody>
                         <?php } else { ?>
@@ -100,7 +108,7 @@ $data = read("SELECT P.*, D.nama_dosen FROM tb_pengajuan P INNER JOIN tb_dospem 
                                     <tr>
                                         <th scope="row"><?= $i ?></th>
                                         <td scope="row">
-                                            <button type="button" <?= $value['status'] === 'Belum' ? print "class='btn btn-danger btn-sm'" : print "class='btn btn-success btn-sm'" ?>><?php echo $value['status'] === 'Belum' ? "Tidak Diterima" : "Diterima" ?></button>
+                                            <button type="button" style="cursor: default;" <?= $value['status'] === 'Tolak' ? print "class='btn btn-danger btn-sm'" : (($value['status'] === 'Sudah') ? print "class='btn btn-success btn-sm'" : print "class='btn btn-secondary btn-sm'") ?>><?php echo $value['status'] === 'Belum' ? "Belum Diterima" : (($value['status'] === 'Sudah') ? "Diterima" : "Perlu Revisi") ?></button>
                                         </td>
                                         <td>
                                             <h6>
@@ -108,16 +116,16 @@ $data = read("SELECT P.*, D.nama_dosen FROM tb_pengajuan P INNER JOIN tb_dospem 
                                             </h6>
                                         </td>
                                         <td>
-                                            Surat Pengantar.docx
+                                            <a href="ms-word:ofe|u|http://localhost/PBL-web-MBKM-Arsip/mahasiswa/surat/<?= $value['suratpengantar'] ?>" class="btn btn-success mx-5">View</a>
                                         </td>
                                         <td>
-                                            Laporan.pdf
+                                            <a href="./laporan/<?= $value['laporanakhir'] ?>"class="btn btn-success mx-5">View</a>
                                         </td>
                                         <td>
-                                            logbook.xls
+                                            <a href="ms-excel:ofe|u|http://localhost/PBL-web-MBKM-Arsip/mahasiswa/logbook/<?= $value['logbook'] ?>"class="btn btn-success mx-2">View</a>
                                         </td>
                                         <td>
-                                            13/12/2023
+                                            <?= splitTanggal($value['updated_at']) ?>
                                         </td>
                                     </tr>
                                 </tbody>

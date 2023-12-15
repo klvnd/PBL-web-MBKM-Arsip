@@ -14,16 +14,26 @@ function moveFileSurat($file) {
 function uploadSurat($dospem, $id) {
     global $conn;
     $idDospem = (int)$dospem;
-    $file = moveFileSurat($_FILES['suratpengantar']);
-    $query = "INSERT INTO tb_pengajuan VALUES (
-        '',
-        '$id',
-        '$idDospem',
-        'Belum',
-        '$file'
-        )";
-    mysqli_query($conn, $query);
-    header('Location: pengajuan.php');
+    date_default_timezone_set('Asia/Jakarta');
+    $dateNow = date('Y-m-d H:i:s');
+    $getQuery = "SELECT * FROM tb_pengajuan WHERE id_akunmhs = $id";
+    $result = mysqli_query($conn, $getQuery);
+    if (mysqli_num_rows($result) !== 2) {
+        $file = moveFileSurat($_FILES['suratpengantar']);
+        $query = "INSERT INTO tb_pengajuan VALUES (
+            '',
+            '$id',
+            '$idDospem',
+            'Belum',
+            '$file',
+            '$dateNow',
+            '$dateNow'
+            )";
+        mysqli_query($conn, $query);
+        header('Location: pengajuan.php');
+    } else {
+        echo "<script> alert('Upload file tidak boleh melebihi 2 kali !'); document.location.href = 'pengajuan.php'; </script>";
+    }
 }
 
 function getDospem() {

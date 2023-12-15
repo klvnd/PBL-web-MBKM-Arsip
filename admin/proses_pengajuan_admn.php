@@ -30,11 +30,19 @@ function upload($path, $new) {
 
 function update($id, $file) {
     global $conn;
-    $newPath = upload($file, $_FILES['surat']);
-    $query = "UPDATE tb_pengajuan SET
-    suratpengantar = '$newPath',
-    status =  'Sudah'
-    WHERE id_ajuan = '$id'";
-    mysqli_query($conn, $query);
-    header('Location: pengajuan_admn.php');
+    if ($_FILES['suratpengantar']['name'] === "") {
+        $query = "UPDATE tb_pengajuan SET
+        status =  'Tolak'
+        WHERE id_ajuan = '$id'";
+        mysqli_query($conn, $query);
+        header('Location: pengajuan_admn.php');
+    } else {
+        $newPath = upload($file, $_FILES['suratpengantar']);
+        $query = "UPDATE tb_pengajuan SET
+        suratpengantar = '$newPath',
+        status =  'Sudah'
+        WHERE id_ajuan = '$id'";
+        mysqli_query($conn, $query);
+        header('Location: pengajuan_admn.php');
+    }
 }
