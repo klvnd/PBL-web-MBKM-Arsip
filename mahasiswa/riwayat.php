@@ -1,23 +1,17 @@
 <?php
 include('../proses_login.php');
 include('./proses_riwayat_mhs.php');
+include('./utils.php');
 check();
 $id = $_SESSION['user']['id_akunmhs'];
 $data = read("SELECT P.*, D.nama_dosen, M.* FROM tb_pengajuan P 
 INNER JOIN tb_dospem D ON P.id_dospem = D.id_dospem 
 INNER JOIN tb_datamhs M ON P.id_akunmhs = M.id_mahasiswa
 WHERE id_akunmhs = '$id'");
-function splitTanggal($date) {
-    $split = explode(" ", $date);
-    $tanggal = explode("-", $split[0]);
-    return $tanggal[2] . "/" . $tanggal[1] . "/" . $tanggal[0];
-}
 ?>
 <!DOCTYPE html>
-<html xmlns:v="urn:schemas-microsoft-com:vml" 
-        xmlns:o="urn:schemas-microsoft-com:office:office" 
-        xmlns:w="urn:schemas-microsoft-com:office:word" 
-        xmlns:m="http://schemas.microsoft.com/office/2004/12/omml">
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/2004/12/omml">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,11 +23,13 @@ function splitTanggal($date) {
         .bg-navy {
             background-color: #0A2640;
         }
+
         .bg-lightgrey {
             background-color: #E9ECEF;
         }
     </style>
 </head>
+
 <body>
     <nav class="navbar navbar-light bg-navy pt-5 px-5 pb-3">
         <div>
@@ -66,14 +62,14 @@ function splitTanggal($date) {
                         Akun
                     </a></li> -->
                     <li><a class="dropdown-item" href="../proses_login.php?logout=true" style="font-weight: bold;">
-                        <embed src="../icon/out1.svg" type="" class="mr-2 px-3">
-                        Sign Out
-                    </a></li>
+                            <embed src="../icon/out1.svg" type="" class="mr-2 px-3">
+                            Sign Out
+                        </a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    
+
     <div class="p-5 text-center">
         <h1>Riwayat</h1>
     </div>
@@ -96,6 +92,7 @@ function splitTanggal($date) {
                             </tr>
                         </thead>
                         <?php $i = 1; ?>
+                        <?php $a = ""; ?>
                         <?php if ($data == null) { ?>
                             <tbody>
                                 <tr>
@@ -119,10 +116,10 @@ function splitTanggal($date) {
                                             <a href="ms-word:ofe|u|http://localhost/PBL-web-MBKM-Arsip/mahasiswa/surat/<?= $value['suratpengantar'] ?>" class="btn btn-success mx-5">View</a>
                                         </td>
                                         <td>
-                                            <a href="./laporan/<?= $value['laporanakhir'] ?>"class="btn btn-success mx-5">View</a>
+                                            <a href="./laporan/<?= $value['laporanakhir'] ?>" class="btn btn-success mx-5">View</a>
                                         </td>
                                         <td>
-                                            <a href="ms-excel:ofe|u|http://localhost/PBL-web-MBKM-Arsip/mahasiswa/logbook/<?= $value['logbook'] ?>"class="btn btn-success mx-2">View</a>
+                                            <a href="ms-excel:ofe|u|http://localhost/PBL-web-MBKM-Arsip/mahasiswa/logbook/<?= $value['logbook'] ?>" class="btn btn-success mx-2">View</a>
                                         </td>
                                         <td>
                                             <?= splitTanggal($value['updated_at']) ?>
@@ -131,42 +128,54 @@ function splitTanggal($date) {
                                 </tbody>
                                 <?php $i++ ?>
                             <?php endforeach ?>
-                        </table>
+                        <?php } ?>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="p-5 mx-auto" style="max-width: 800px;">
+            <div class="card w-100 bg-navy">
+                <div class="card-body text-white d-flex align-items-center">
+                    <div class="custom-icon px-3">
+                        <i class="fas fa-download" style="font-size: 3em;"></i>
+                    </div>
+                    <div class="text-right px-3 ml-3">
+                        <h2>Download Surat Pengantar Magang</h2>
+                        <p>Yang telah ditandatangani</p>
+                        <input type="text" id="getDate" value="<?php print getDiffDate($data[0], $data[1]) ?>" hidden>
+                        <a href="./surat/<?php print getDiffDate($data[0], $data[1]) ?>" onclick="clickDownload()" id="href" class="btn rounded-5 bg-white text-black btn-sm">
+                            <h6>Download</h6>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
 
-    <div class="p-5 mx-auto" style="max-width: 800px;">
-        <div class="card w-100 bg-navy">
-            <div class="card-body text-white d-flex align-items-center">
-                <div class="custom-icon px-3">
-                    <i class="fas fa-download" style="font-size: 3em;"></i>
-                </div>
-                <div class="text-right px-3 ml-3">
-                    <h2>Download Surat Pengantar Magang</h2>
-                    <p>Yang telah ditandatangani</p>
-                    <a href="./surat/<?php print $value['suratpengantar'] ?>" class="btn rounded-5 bg-white text-black btn-sm"><h6>Download</h6></a>
-                </div>
-            </div>
-        </div>
-        <?php } ?>
-    </div>
-    
-    
 
-    <footer class="bg-light text-center text-lg-start mt-5">
-        <div class="container-fluid text-white bg-black">
-            <div class="row align-items-center">
-                <a class="col-lg-5 p-lg-4 navbar-brand text-lg-left" href="#">
-                    <img src="../images/MBKM Arsip1.png" width="200" height="34" alt="">
-                </a>
-                <p class="col-lg m-lg-auto mb-0">
-                    Copyright: MBKM Arsip 2023
-                </p>
+
+
+        <footer class="bg-light text-center text-lg-start mt-5">
+            <div class="container-fluid text-white bg-black">
+                <div class="row align-items-center">
+                    <a class="col-lg-5 p-lg-4 navbar-brand text-lg-left" href="#">
+                        <img src="../images/MBKM Arsip1.png" width="200" height="34" alt="">
+                    </a>
+                    <p class="col-lg m-lg-auto mb-0">
+                        Copyright: MBKM Arsip 2023
+                    </p>
+                </div>
             </div>
-        </div>
-    </footer>
-    <script src="../NPM/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+        </footer>
+        <script src="../NPM/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+        <script>
+            function clickDownload() {
+                const getDate = document.getElementById('getDate')
+                const getLink = document.getElementById('href')
+                if (getDate.value === '') {
+                    getLink.href = 'riwayat.php'
+                }
+            }
+        </script>
 </body>
+
 </html>
