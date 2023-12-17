@@ -17,7 +17,8 @@ function read($query)
     return $rows;
 }
 
-function upload($path, $new) {
+function upload($path, $new)
+{
     $namaFile = $new['name'];
     $tmp_name = $new['tmp_name'];
     $split = explode('.', $namaFile);
@@ -28,21 +29,24 @@ function upload($path, $new) {
     return $uniq;
 }
 
-function update($id, $file) {
+function update($id, $file, $status)
+{
     global $conn;
-    if ($_FILES['suratpengantar']['name'] === "") {
+    if ($status === "Tolak") {
         $query = "UPDATE tb_pengajuan SET
         status =  'Tolak'
         WHERE id_ajuan = '$id'";
         mysqli_query($conn, $query);
         header('Location: pengajuan_admn.php');
-    } else {
+    } else if ($status === "Sudah") {
         $newPath = upload($file, $_FILES['suratpengantar']);
         $query = "UPDATE tb_pengajuan SET
         suratpengantar = '$newPath',
         status =  'Sudah'
         WHERE id_ajuan = '$id'";
         mysqli_query($conn, $query);
+        header('Location: pengajuan_admn.php');
+    } else {
         header('Location: pengajuan_admn.php');
     }
 }
